@@ -1,0 +1,458 @@
+BODY {
+	MARGIN: 0px; BACKGROUND-COLOR: white
+}
+.ControlPanel {
+	BORDER-RIGHT: #003366 1px solid; BORDER-TOP: #003366 1px solid; BORDER-LEFT: #003366 1px solid; WIDTH: 100%; BORDER-BOTTOM: #003366 1px solid; BACKGROUND-COLOR: #ffffff
+}
+.PagingTable {
+	BORDER-RIGHT: #003366 1px solid; BORDER-TOP: #003366 1px solid; BORDER-LEFT: #003366 1px solid; WIDTH: 100%; BORDER-BOTTOM: #003366 1px solid; BACKGROUND-COLOR: #ffffff
+}
+.SkinObject {
+	FONT-WEIGHT: bold; FONT-SIZE: 8.5pt; COLOR: #003366; FONT-FAMILY: Tahoma, Arial, Helvetica; TEXT-DECORATION: none
+}
+A.SkinObject:link {
+	COLOR: #003366; TEXT-DECORATION: none
+}
+A.SkinObject:visited {
+	COLOR: #003366; TEXT-DECORATION: none
+}
+A.SkinObject:hover {
+	COLOR: #003366; TEXT-DECORATION: none
+}
+A.SkinObject:active {
+	COLOR: #003366; TEXT-DECORATION: none
+}
+.Language {
+	MARGIN: 0px; VERTICAL-ALIGN: middle
+}
+.Language IMG {
+	BORDER-RIGHT: medium none; BORDER-TOP: medium none; BORDER-LEFT: medium none; BORDER-BOTTOM: medium none
+}
+.Head {
+	FONT-WEIGHT: normal; FONT-SIZE: 20px; COLOR: #333333; FONT-FAMILY: Tahoma, Arial, Helvetica
+}
+.SubHead {
+	FONT-WEIGHT: bold; FONT-SIZE: 11px; COLOR: #003366; FONT-FAMILY: Tahoma, Arial, Helvetica
+}
+.SubSubHead {
+	FONT-WEIGHT: bold; FONT-SIZE: 11px; COLOR: black; FONT-FAMILY: Tahoma, Arial, Helvetica
+}
+.Normal {
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; FONT-FAMILY: Tahoma, Arial, Helvetica
+}
+.NormalDisabled {
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; FONT-FAMILY: Tahoma, Arial, Helvetica
+}
+.NormalDisabled {
+	COLOR: silver
+}
+.NormalBold {
+	FONT-WEIGHT: bold; FONT-SIZE: 11px; FONT-FAMILY: Tahoma, Arial, Helvetica
+}
+.NormalRed {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #ff0000; FONT-FAMILY: Tahoma, Arial, Helvetica
+}
+.NormalTextBox {
+	FONT-WEIGHT: normal; FONT-SIZE: 12px; FONT-FAMILY: Tahoma, Arial, Helvetica
+}
+.DataGrid_AlternatingItem {
+	FONT-WEIGHT: normal; FONT-SIZE: 10px; COLOR: red; FONT-FAMILY: Tahoma, Arial, Helvetica; BACKGROUND-COLOR: white
+}
+.DataGrid_Container {
+	BACKGROUND-COLOR: transparent
+}
+.DataGrid_Footer {
+	BACKGROUND-COLOR: white
+}
+.DataGrid_Header {
+	FONT-WEIGHT: bold; FONT-SIZE: 10px; COLOR: black; FONT-FAMILY: Tahoma, Arial, Helvetica; BACKGROUND-COLOR: transparent; TEXT-ALIGN: center
+}
+.DataGrid_Item {
+	FONT-WEIGHT: normal; FONT-SIZE: 10px; COLOR: black; FONT-FAMILY: Tahoma, Arial, Helvetica; BACKGROUND-COLOR: transparent
+}
+.DataGrid_SelectedItem {
+	FONT-WEIGHT: normal; FONT-SIZE: 10px; COLOR: blue; FONT-FAMILY: Tahoma, Arial, Helvetica; BACKGROUND-COLOR: silver
+}
+.TreeMenu_Node {
+	FONT-WEIGHT: normal; FONT-SIZE: 12px; FONT-FAMILY: Tahoma, Arial, Helvetica
+}
+.TreeMenu_NodeSelected {
+	FONT-WEIGHT: normal; FONT-SIZE: 12px; FONT-FAMILY: Tahoma, Arial, Helvetica; BACKGROUND-COLOR: #dcdcdc
+}
+A.TreeMenu_Node:link {
+	COLOR: #003366; TEXT-DECORATION: none
+}
+A.TreeMenu_NodeSelected:link {
+	COLOR: #003366; TEXT-DECORATION: none
+}
+A.TreeMenu_Node:visited {
+	COLOR: #003366; TEXT-DECORATION: none
+}
+A.TreeMenu_NodeSelected:visited {
+	COLOR: #003366; TEXT-DECORATION: none
+}
+A.TreeMenu_Node:hover {
+	COLOR: #ff0000; TEXT-DECORATION: none
+}
+A.TreeMenu_NodeSelected:hover {
+	COLOR: #ff0000; TEXT-DECORATION: none
+}
+A.TreeMenu_Node:active {
+	COLOR: #003366; TEXT-DECORATION: none
+}
+A.TreeMenu_NodeSelected:active {
+	COLOR: #003366; TEXT-DECORATION: none
+}
+.FileManager {
+	BORDER-RIGHT: black 1px solid; BORDER-TOP: black 1px solid; BORDER-LEFT: black 1px solid; BORDER-BOTTOM: black 1px solid; HEIGHT: 400px
+}
+.FileManager_ToolBar {
+	BORDER-BOTTOM: black 1px solid; HEIGHT: 25px
+}
+.FileManager_Explorer {
+	BORDER-RIGHT: #696969 1px solid; BORDER-TOP: #696969 1px solid; MARGIN: 2px; BORDER-LEFT: #696969 1px solid; BORDER-BOTTOM: #696969 1px solid; HEIGHT: 100%; BACKGROUND-COLOR: white
+}
+.FileManager_FileList {
+	BORDER-RIGHT: #696969 1px solid; BORDER-TOP: #696969 1px solid; MARGIN: 2px; OVERFLOW: auto; BORDER-LEFT: #696969 1px solid; BORDER-BOTTOM: #696969 1px solid; HEIGHT: 100%; BACKGROUND-COLOR: white
+}
+.FileManager_MessageBox {
+	PADDING-RIGHT: 25px; PADDING-LEFT: 25px; PADDING-BOTTOM: 25px; VERTICAL-ALIGN: middle; PADDING-TOP: 25px; BACKGROUND-COLOR: white; TEXT-ALIGN: center
+}
+.FileManager_Header {
+	FONT-WEIGHT: bold; FONT-SIZE: 11px; COLOR: #e7e7ff; BORDER-BOTTOM: #696969 1px solid; FONT-FAMILY: Tahoma, Arial, Helvetica; HEIGHT: 25px; BACKGROUND-COLOR: #9ebff6
+}
+.FileManager_Pager {
+	BORDER-TOP: #696969 1px solid; FONT-WEIGHT: bold; FONT-SIZE: 11px; FONT-FAMILY: Tahoma, Arial, Helvetica; HEIGHT: 25px; BACKGROUND-COLOR: #eeeeee
+}
+.FileManager_StatusBar {
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; MARGIN: 2px; FONT-FAMILY: Tahoma, Arial, Helvetica; HEIGHT: 25px; BACKGROUND-COLOR: #dedfde
+}
+.FileManager_Item {
+	BORDER-TOP: black 1px dashed; FONT-WEIGHT: normal; FONT-SIZE: 11px; COLOR: black; BORDER-BOTTOM: black 1px dashed; FONT-FAMILY: Tahoma, Arial, Helvetica; BACKGROUND-COLOR: #f8f8f8
+}
+.FileManager_AltItem {
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; COLOR: black; BORDER-TOP-STYLE: none; FONT-FAMILY: Tahoma, Arial, Helvetica; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BACKGROUND-COLOR: #eeeeee; BORDER-BOTTOM-STYLE: none
+}
+.FileManager_SelItem {
+	FONT-WEIGHT: bold; FONT-SIZE: 11px; COLOR: white; BORDER-TOP-STYLE: none; FONT-FAMILY: Tahoma, Arial, Helvetica; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BACKGROUND-COLOR: #99ffff; BORDER-BOTTOM-STYLE: none
+}
+.FileManagerTreeNode {
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; FONT-FAMILY: Tahoma, Arial, Helvetica
+}
+.FileManagerTreeNodeSelected {
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; FONT-FAMILY: Tahoma, Arial, Helvetica; BACKGROUND-COLOR: #dcdcdc
+}
+A.FileManagerTreeNode:link {
+	COLOR: #003366; TEXT-DECORATION: none
+}
+A.FileManagerTreeNodeSelected:link {
+	COLOR: #003366; TEXT-DECORATION: none
+}
+A.FileManagerTreeNode:visited {
+	COLOR: #003366; TEXT-DECORATION: none
+}
+A.FileManagerTreeNodeSelected:visited {
+	COLOR: #003366; TEXT-DECORATION: none
+}
+A.FileManagerTreeNode:hover {
+	COLOR: #ff0000; TEXT-DECORATION: none
+}
+A.FileManagerTreeNodeSelected:hover {
+	COLOR: #ff0000; TEXT-DECORATION: none
+}
+A.FileManagerTreeNode:active {
+	COLOR: #003366; TEXT-DECORATION: none
+}
+A.FileManagerTreeNodeSelected:active {
+	COLOR: #003366; TEXT-DECORATION: none
+}
+.Wizard {
+	BORDER-RIGHT: black 1px solid; BORDER-TOP: black 1px solid; BORDER-LEFT: black 1px solid; WIDTH: 650px; BORDER-BOTTOM: black 1px solid; HEIGHT: 400px
+}
+.WizardButton {
+	BORDER-RIGHT: #696969 1px solid; PADDING-RIGHT: 2px; BORDER-TOP: #696969 1px solid; PADDING-LEFT: 2px; PADDING-BOTTOM: 2px; BORDER-LEFT: #696969 1px solid; PADDING-TOP: 2px; BORDER-BOTTOM: #696969 1px solid; BACKGROUND-COLOR: #dcdcdc
+}
+.WizardHeader {
+	BACKGROUND: #ffffcc; BORDER-BOTTOM: black 1px solid; HEIGHT: 40px
+}
+.WizardFooter {
+	BORDER-TOP: black 1px solid; BACKGROUND: #ccffcc; HEIGHT: 25px; TEXT-ALIGN: right
+}
+.WizardBody {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; PADDING-TOP: 10px; HEIGHT: 325px
+}
+.WizardHelp {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; FONT-SIZE: 9pt; PADDING-BOTTOM: 5px; BORDER-LEFT: black 1px solid; WIDTH: 180px; PADDING-TOP: 5px; BACKGROUND-COLOR: #ccffff
+}
+.WizardHelpText {
+	FONT-SIZE: 8pt; OVERFLOW: auto; WIDTH: 180px; COLOR: black; FONT-FAMILY: Tahoma, Verdana, Arial, Sans-Serif; HEIGHT: 300px
+}
+.WizardText {
+	FONT-SIZE: 9pt; COLOR: black; FONT-FAMILY: Tahoma, Verdana, Arial, Sans-Serif
+}
+.Help {
+	BORDER-RIGHT: black 1px solid; PADDING-RIGHT: 2px; BORDER-TOP: black 1px solid; PADDING-LEFT: 2px; FONT-WEIGHT: normal; FONT-SIZE: 11px; PADDING-BOTTOM: 2px; BORDER-LEFT: black 1px solid; COLOR: black; PADDING-TOP: 2px; BORDER-BOTTOM: black 1px solid; FONT-FAMILY: Tahoma, Arial, Helvetica; BACKGROUND-COLOR: #ffff99
+}
+.CommandButton {
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; FONT-FAMILY: Tahoma, Arial, Helvetica
+}
+A.CommandButton:link {
+	COLOR: #003366; TEXT-DECORATION: underline
+}
+A.CommandButton:visited {
+	COLOR: #003366; TEXT-DECORATION: underline
+}
+A.CommandButton:hover {
+	COLOR: #ff0000; TEXT-DECORATION: underline
+}
+A.CommandButton:active {
+	COLOR: #003366; TEXT-DECORATION: underline
+}
+.StandardButton {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; FONT-WEIGHT: normal; FONT-SIZE: 11px; BACKGROUND: #dddddd; COLOR: #000000; FONT-FAMILY: Verdana, sans-serif
+}
+H1 {
+	FONT-WEIGHT: normal; FONT-SIZE: 20px; COLOR: #666644; FONT-FAMILY: Tahoma, Arial, Helvetica
+}
+H2 {
+	FONT-WEIGHT: normal; FONT-SIZE: 20px; COLOR: #666644; FONT-FAMILY: Tahoma, Arial, Helvetica
+}
+H3 {
+	FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #003366; FONT-FAMILY: Tahoma, Arial, Helvetica
+}
+H4 {
+	FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #003366; FONT-FAMILY: Tahoma, Arial, Helvetica
+}
+H5 {
+	FONT-WEIGHT: bold; FONT-SIZE: 11px; COLOR: #003366; FONT-FAMILY: Tahoma, Arial, Helvetica
+}
+DT {
+	FONT-WEIGHT: bold; FONT-SIZE: 11px; COLOR: #003366; FONT-FAMILY: Tahoma, Arial, Helvetica
+}
+H6 {
+	FONT-WEIGHT: bold; FONT-SIZE: 11px; COLOR: #003366; FONT-FAMILY: Tahoma, Arial, Helvetica
+}
+TFOOT {
+	FONT-SIZE: 12px; COLOR: #003366; FONT-FAMILY: Tahoma, Arial, Helvetica
+}
+THEAD {
+	FONT-SIZE: 12px; COLOR: #003366; FONT-FAMILY: Tahoma, Arial, Helvetica
+}
+TH {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; VERTICAL-ALIGN: baseline; COLOR: #003366; FONT-FAMILY: Tahoma, Arial, Helvetica
+}
+A:link {
+	COLOR: #003366; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #003366; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #ff0000; TEXT-DECORATION: underline
+}
+A:active {
+	COLOR: #003366; TEXT-DECORATION: none
+}
+SMALL {
+	FONT-SIZE: 8px
+}
+BIG {
+	FONT-SIZE: 14px
+}
+BLOCKQUOTE {
+	FONT-FAMILY: Lucida Console, monospace
+}
+PRE {
+	FONT-FAMILY: Lucida Console, monospace
+}
+UL LI {
+	LIST-STYLE-TYPE: square
+}
+UL LI LI {
+	LIST-STYLE-TYPE: disc
+}
+UL LI LI LI {
+	LIST-STYLE-TYPE: circle
+}
+OL LI {
+	LIST-STYLE-TYPE: decimal
+}
+OL OL LI {
+	LIST-STYLE-TYPE: lower-alpha
+}
+OL OL OL LI {
+	LIST-STYLE-TYPE: lower-roman
+}
+OL UL LI {
+	LIST-STYLE-TYPE: disc
+}
+HR {
+	COLOR: #696969; HEIGHT: 1pt; TEXT-ALIGN: left
+}
+.ModuleTitle_MenuContainer {
+	BORDER-RIGHT: blue 0px solid; BORDER-TOP: blue 0px solid; BORDER-LEFT: blue 0px solid; BORDER-BOTTOM: blue 0px solid
+}
+.ModuleTitle_MenuBar {
+	CURSOR: pointer; HEIGHT: 16px; BACKGROUND-COLOR: transparent
+}
+.ModuleTitle_MenuItem {
+	BORDER-RIGHT: white 0px solid; BORDER-TOP: white 1px solid; FONT-WEIGHT: bold; FONT-SIZE: 9pt; BORDER-LEFT: white 0px solid; CURSOR: pointer; COLOR: black; BORDER-BOTTOM: white 1px solid; FONT-STYLE: normal; FONT-FAMILY: Tahoma, Arial, Helvetica; BACKGROUND-COLOR: transparent
+}
+.ModuleTitle_MenuIcon {
+	BORDER-TOP: #eeeeee 1px solid; BORDER-LEFT: #eeeeee 1px solid; WIDTH: 15px; CURSOR: pointer; BORDER-BOTTOM: #eeeeee 1px solid; HEIGHT: 21px; BACKGROUND-COLOR: #eeeeee; TEXT-ALIGN: center
+}
+.ModuleTitle_SubMenu {
+	BORDER-RIGHT: #ffffff 0px solid; BORDER-TOP: #ffffff 0px solid; Z-INDEX: 1000; BORDER-LEFT: #ffffff 0px solid; CURSOR: pointer; BORDER-BOTTOM: #ffffff 0px solid; BACKGROUND-COLOR: #ffffff
+}
+.ModuleTitle_MenuBreak {
+	BORDER-RIGHT: #eeeeee 0px solid; BORDER-TOP: #eeeeee 1px solid; BORDER-LEFT: #eeeeee 0px solid; BORDER-BOTTOM: #eeeeee 1px solid; HEIGHT: 1px; BACKGROUND-COLOR: #eeeeee
+}
+.ModuleTitle_MenuItemSel {
+	FONT-WEIGHT: bold; FONT-SIZE: 9pt; CURSOR: pointer; COLOR: black; FONT-STYLE: normal; FONT-FAMILY: Tahoma, Arial, Helvetica; BACKGROUND-COLOR: #c1d2ee
+}
+.ModuleTitle_MenuArrow {
+	BORDER-RIGHT: #ffffff 1px solid; BORDER-TOP: #ffffff 0px solid; FONT-SIZE: 10pt; CURSOR: pointer; BORDER-BOTTOM: #ffffff 1px solid; FONT-FAMILY: webdings
+}
+.ModuleTitle_RootMenuArrow {
+	FONT-SIZE: 10pt; CURSOR: pointer; FONT-FAMILY: webdings
+}
+.MainMenu_MenuContainer {
+	BACKGROUND-COLOR: transparent
+}
+.MainMenu_MenuBar {
+	CURSOR: pointer; HEIGHT: 16px; BACKGROUND-COLOR: transparent
+}
+.MainMenu_MenuItem {
+	BORDER-RIGHT: white 0px solid; BORDER-TOP: white 1px solid; FONT-WEIGHT: bold; FONT-SIZE: 9pt; BORDER-LEFT: white 0px solid; CURSOR: pointer; COLOR: black; BORDER-BOTTOM: white 1px solid; FONT-STYLE: normal; FONT-FAMILY: Tahoma, Arial, Helvetica; BACKGROUND-COLOR: transparent
+}
+.MainMenu_MenuIcon {
+	BORDER-TOP: #eeeeee 1px solid; BORDER-LEFT: #eeeeee 1px solid; WIDTH: 15px; CURSOR: pointer; BORDER-BOTTOM: #eeeeee 1px solid; HEIGHT: 21px; BACKGROUND-COLOR: #eeeeee; TEXT-ALIGN: center
+}
+.MainMenu_SubMenu {
+	BORDER-RIGHT: #ffffff 0px solid; BORDER-TOP: #ffffff 0px solid; Z-INDEX: 1000; BORDER-LEFT: #ffffff 0px solid; CURSOR: pointer; BORDER-BOTTOM: #ffffff 0px solid; BACKGROUND-COLOR: #ffffff
+}
+.MainMenu_MenuBreak {
+	BORDER-RIGHT: #eeeeee 0px solid; BORDER-TOP: #eeeeee 1px solid; BORDER-LEFT: #eeeeee 0px solid; BORDER-BOTTOM: #eeeeee 1px solid; HEIGHT: 1px; BACKGROUND-COLOR: #eeeeee
+}
+.MainMenu_MenuItemSel {
+	FONT-WEIGHT: bold; FONT-SIZE: 9pt; CURSOR: pointer; COLOR: black; FONT-STYLE: normal; FONT-FAMILY: Tahoma, Arial, Helvetica; BACKGROUND-COLOR: #c1d2ee
+}
+.MainMenu_MenuArrow {
+	BORDER-RIGHT: #ffffff 1px solid; BORDER-TOP: #ffffff 0px solid; FONT-SIZE: 10pt; CURSOR: pointer; BORDER-BOTTOM: #ffffff 1px solid; FONT-FAMILY: webdings
+}
+.MainMenu_RootMenuArrow {
+	FONT-SIZE: 10pt; CURSOR: pointer; FONT-FAMILY: webdings
+}
+.HeadBg {
+	BACKGROUND-COLOR: #cccccc
+}
+.TabBg {
+	BACKGROUND-COLOR: black
+}
+.SelectedTab {
+	FONT-WEIGHT: bold; FONT-SIZE: 8.5pt; COLOR: #ffffff; FONT-FAMILY: Tahoma, Arial, Helvetica; TEXT-DECORATION: none
+}
+A.SelectedTab:link {
+	COLOR: white; TEXT-DECORATION: none
+}
+A.SelectedTab:visited {
+	COLOR: #eeeeee; TEXT-DECORATION: none
+}
+A.SelectedTab:hover {
+	COLOR: #cccccc; TEXT-DECORATION: none
+}
+A.SelectedTab:active {
+	COLOR: #eeeeee; TEXT-DECORATION: none
+}
+.OtherTabs {
+	FONT-WEIGHT: bold; FONT-SIZE: 8.5pt; COLOR: white; FONT-FAMILY: Tahoma, Arial, Helvetica; TEXT-DECORATION: none
+}
+A.OtherTabs:link {
+	COLOR: white; TEXT-DECORATION: none
+}
+A.OtherTabs:visited {
+	COLOR: #eeeeee; TEXT-DECORATION: none
+}
+A.OtherTabs:hover {
+	COLOR: #cccccc; TEXT-DECORATION: none
+}
+A.OtherTabs:active {
+	COLOR: #eeeeee; TEXT-DECORATION: none
+}
+.PagingTable {
+	HEIGHT: 33px
+}
+.LabelEditTextClass {
+	BORDER-RIGHT: red 1px solid; BORDER-TOP: red 1px solid; BORDER-LEFT: red 1px solid; BORDER-BOTTOM: red 1px solid; BACKGROUND-COLOR: transparent
+}
+.LabelEditWorkClass {
+	BORDER-RIGHT: red 0px solid; BORDER-TOP: red 0px solid; BORDER-LEFT: red 0px solid; BORDER-BOTTOM: red 0px solid; BACKGROUND-COLOR: transparent
+}
+.SuggestTextMenu {
+	BORDER-RIGHT: black 1px solid; BORDER-TOP: black 1px solid; BACKGROUND: white; BORDER-LEFT: black 1px solid; BORDER-BOTTOM: black 1px solid; WHITE-SPACE: nowrap
+}
+.SuggestNodeOver {
+	COLOR: white; BACKGROUND-COLOR: navy
+}
+.eipbackimg {
+	BORDER-RIGHT: 1px outset; BORDER-TOP: 1px outset; MARGIN-TOP: -22px; BACKGROUND: url(images/eip_toolbar.gif) #99cccc; BORDER-LEFT: 1px outset; BORDER-BOTTOM: 1px outset; WHITE-SPACE: nowrap; POSITION: absolute; HEIGHT: 22px
+}
+.eipbuttonbackimg {
+	DISPLAY: inline-block; WIDTH: 21px; CURSOR: pointer; HEIGHT: 21px
+}
+.eipbutton_edit {
+	BACKGROUND: url(images/eip_edit.gif) no-repeat 100% center
+}
+.eipbutton_save {
+	BACKGROUND: url(images/eip_save.gif) no-repeat 100% center
+}
+.eipborderhover {
+	BORDER-RIGHT: 1px outset; BORDER-TOP: 1px outset; BORDER-LEFT: 1px outset; BORDER-BOTTOM: 1px outset
+}
+.DNNEmptyPane {
+	WIDTH: 0px
+}
+.DNNAlignleft {
+	TEXT-ALIGN: left
+}
+.DNNAlignright {
+	TEXT-ALIGN: right
+}
+.DNNAligncenter {
+	TEXT-ALIGN: center
+}
+.LoginPanel {
+	
+}
+.LoginTabGroup {
+	
+}
+.LoginTab {
+	BORDER-RIGHT: #25569a 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #25569a 1px solid; PADDING-LEFT: 5px; BACKGROUND: url(images/tablogin_gray.gif) left top; FLOAT: left; PADDING-BOTTOM: 4px; MARGIN: 0px 3px 3px 0px; BORDER-LEFT: #25569a 1px solid; COLOR: #fff; PADDING-TOP: 5px; BORDER-BOTTOM: #25569a 1px solid; TEXT-DECORATION: none
+}
+.LoginTabSelected {
+	BORDER-RIGHT: #25569a 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #25569a 1px solid; PADDING-LEFT: 5px; BACKGROUND: url(images/tablogin_gray.gif) 0% -41px; FLOAT: left; PADDING-BOTTOM: 4px; MARGIN: 0px 3px 3px 0px; BORDER-LEFT: #25569a 1px solid; COLOR: #fff; PADDING-TOP: 5px; BORDER-BOTTOM: #25569a 1px solid; TEXT-DECORATION: none
+}
+.LoginTabHover {
+	BORDER-RIGHT: #c00 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #c00 1px solid; PADDING-LEFT: 5px; BACKGROUND: url(images/tablogin_gray.gif) left top; FLOAT: left; PADDING-BOTTOM: 4px; MARGIN: 0px 3px 3px 0px; BORDER-LEFT: #c00 1px solid; CURSOR: pointer; COLOR: #555; PADDING-TOP: 5px; BORDER-BOTTOM: #c00 1px solid; TEXT-DECORATION: none
+}
+.LoginContainerGroup {
+	CLEAR: both; PADDING-TOP: 5px
+}
+.LoginContainer {
+	
+}
+
+.txt_tags
+{
+	font-weight: bold;; FONT-SIZE: 11px; FONT-FAMILY: vendra; color: #CC0000; bold
+}
+
+.txt_tags_black
+{
+	font-weight: bold;; FONT-SIZE: 11px; FONT-FAMILY: vendra; color: #696969; bold
+}
+.txt_tags_hand
+{
+	font-weight: bold;; FONT-SIZE: 11px; CURSOR: hand; FONT-FAMILY: vendra; color: #CC0000; bold
+}

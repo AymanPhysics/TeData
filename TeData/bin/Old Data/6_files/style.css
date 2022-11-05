@@ -1,0 +1,299 @@
+ .menu{font-family:Tahoma; font-size:10px;  color:#938470; text-decoration:none }
+  .menu1{font-family:Tahoma; font-size:10px;  color:#D8C8B2; text-decoration:none }
+    .main{font-family:Tahoma; font-size:10px;  color:#594536;}
+	.red{font-family:Tahoma; font-size:10px;  color:#940F17;}
+.arrowlistmenu{
+width: 180px; /*width of accordion menu*/
+}
+
+Body
+{
+	scrollbar-3dlight-color:silver;
+	scrollbar-arrow-color:silver;
+	scrollbar-track-color:silver;
+	scrollbar-darkshadow-color:brown;
+	scrollbar-face-color:brown;
+	scrollbar-highlight-color:silver; 
+	scrollbar-shadow-color:silver
+}
+
+.arrowlistmenu .menuheader{ /*CSS class for menu headers in general (expanding or not!)*/
+font: bold 14px Arial;
+color: white;
+background: black url(images/titlebar.png) repeat-x center left;
+margin-bottom: 10px; /*bottom spacing between header and rest of content*/
+text-transform: uppercase;
+padding: 4px 0 4px 10px; /*header text is indented 10px*/
+cursor: hand;
+cursor: pointer;
+}
+
+.arrowlistmenu .openheader{ /*CSS class to apply to expandable header when it's expanded*/
+background-i:url('images/titlebar-active.png')
+}
+
+.arrowlistmenu ul{ /*CSS for UL of each sub menu*/
+list-style-type: none;
+margin: 0;
+padding: 0;
+margin-bottom: 8px; /*bottom spacing between each UL and rest of content*/
+}
+
+.arrowlistmenu ul li{
+padding-bottom: 2px; /*bottom spacing between menu items*/
+}
+
+.arrowlistmenu ul li .opensubheader{ /*Open state CSS for sub menu header*/
+background: lightblue !important;
+}
+
+.arrowlistmenu ul li .closedsubheader{ /*Closed state CSS for sub menu header*/
+background: lightgreen !important;
+}
+
+.arrowlistmenu ul li a{
+color: #A70303;
+background: url(arrowbullet.png) no-repeat center left; /*custom bullet list image*/
+display: block;
+padding: 2px 0;
+padding-left: 19px; /*link text is indented 19px*/
+text-decoration: none;
+font-weight: bold;
+border-bottom: 1px solid #dadada;
+font-size: 90%;
+}
+
+.arrowlistmenu ul li a:visited{
+color: #A70303;
+}
+
+.arrowlistmenu ul li a:hover{ /*hover state CSS*/
+background-color: #F3F3F3;
+}
+
+.arrowlistmenu ul li a.subexpandable:hover{ /*hover state CSS for sub menu header*/
+background: lightblue;
+}
+.nm_circ_title {
+	BORDER-RIGHT: #cccccc 1px solid; BORDER-TOP: #cccccc 1px solid; FONT-WEIGHT: bold; FONT-SIZE: 11px; COLOR: #3e4041; FONT-FAMILY: tahoma; BACKGROUND-COLOR: #e2e0e0; TEXT-ALIGN: left
+}
+.nm_sq_title {
+	BORDER-RIGHT: #cccccc 1px solid; FONT-WEIGHT: bold; FONT-SIZE: 11px; COLOR: #3e4041; FONT-FAMILY: tahoma; BACKGROUND-COLOR: #e2e0e0; TEXT-ALIGN: left
+}
+.nm_data_arrow {
+	FONT-SIZE: 11px; BORDER-LEFT: #cccccc 1px solid; COLOR: #0890df; FONT-FAMILY: tahoma; TEXT-ALIGN: left
+}
+.nm_data_text {
+	BORDER-RIGHT: #cccccc 1px solid; FONT-SIZE: 11px; CURSOR: hand; COLOR: #0890df; FONT-FAMILY: tahoma; TEXT-ALIGN: left
+}
+.nm_data_text_nob {
+	FONT-SIZE: 11px; CURSOR: hand; COLOR: #cc0000; FONT-FAMILY: tahoma; TEXT-ALIGN: left
+}
+.nm_news_date {
+	FONT-SIZE: 11px; MARGIN-LEFT: 2px; COLOR: #00850d; FONT-FAMILY: tahoma; TEXT-ALIGN: left
+}
+.nm_news_date_b {
+	FONT-SIZE: 11px; MARGIN-LEFT: 2px; COLOR: #00850d; FONT-FAMILY: tahoma; FONT-WEIGHT: bold; TEXT-ALIGN: left
+}
+
+.nm_news_title {
+	FONT-WEIGHT: bold; FONT-SIZE: 11px; MARGIN-LEFT: 2px; COLOR: #000000; FONT-FAMILY: tahoma; TEXT-ALIGN: left
+}
+.nm_news_body {
+	FONT-SIZE: 11px; MARGIN-LEFT: 2px; COLOR: #7c7c7c; FONT-FAMILY: tahoma; TEXT-ALIGN: justify
+}
+.nm_news_link {
+	FONT-SIZE: 11px; MARGIN-LEFT: 2px; COLOR: #f68002; CURSOR: hand; FONT-FAMILY: tahoma; TEXT-ALIGN: left; TEXT-DECORATION: none
+}
+.nm_news_border {
+	BORDER-RIGHT: #cccccc 1px solid; FONT-SIZE: 11px; MARGIN-LEFT: 2px; BORDER-LEFT: #cccccc 1px solid; COLOR: #7c7c7c; FONT-FAMILY: tahoma; TEXT-ALIGN: left
+}
+.nm_both {
+	BORDER-RIGHT: #cccccc 1px solid; FONT-SIZE: 1px; BORDER-LEFT: #cccccc 1px solid
+}
+.nm_bottom {
+	BORDER-RIGHT: #cccccc 1px solid; FONT-SIZE: 1px; BORDER-BOTTOM: #cccccc 1px solid
+}
+.nm_left {
+	FONT-SIZE: 1px; BORDER-LEFT: #cccccc 1px solid
+}
+.nm_right {
+	BORDER-RIGHT: #cccccc 1px solid; FONT-SIZE: 1px
+}
+.page_bottom_title {
+	FONT-WEIGHT: bold; FONT-SIZE: 11px; MARGIN-LEFT: 2px; COLOR: #ff7a22; FONT-FAMILY: tahoma; TEXT-ALIGN: left
+}
+.page_bottom_body {
+	FONT-SIZE: 11px; MARGIN-LEFT: 2px; COLOR: #7c7c7c; FONT-FAMILY: tahoma; TEXT-ALIGN: justify
+}
+.page_bottom_link {
+	FONT-WEIGHT: bold; FONT-SIZE: 11px; MARGIN-LEFT: 2px; COLOR: #6db6fd; FONT-FAMILY: tahoma; TEXT-ALIGN: left; TEXT-DECORATION: underline
+}
+.prod_features {
+	FONT-SIZE: 10px; COLOR: #798790; FONT-FAMILY: tahoma; TEXT-ALIGN: left
+}
+.linkimg {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; BORDER-LEFT: 0px; CURSOR: hand; BORDER-BOTTOM: 0px
+}
+.footer_link {
+FONT-WEIGHT: bold; FONT-SIZE: 10px; COLOR: #ffffff; FONT-FAMILY: tahoma; TEXT-ALIGN: center; TEXT-DECORATION: none
+}
+.footer_link:visited {
+	FONT-WEIGHT: bold; FONT-SIZE: 20px; COLOR: #ffffff; FONT-FAMILY: tahoma; TEXT-ALIGN: center; TEXT-DECORATION: none
+}
+.footer_link:hover {
+	FONT-WEIGHT: bold; FONT-SIZE: 10px; FONT-FAMILY: tahoma; TEXT-ALIGN: center; TEXT-DECORATION: overline
+}
+.footer_text {
+	FONT-WEIGHT: bold; FONT-SIZE: 10px; COLOR: #ffffff; FONT-FAMILY: tahoma; TEXT-ALIGN: center
+}
+.download_info {
+	FONT-WEIGHT: bold; FONT-SIZE: 16px; COLOR: #a6a6a6; FONT-FAMILY: tahoma; TEXT-ALIGN: left
+}
+.download_info_home {
+	FONT-WEIGHT: bold; FONT-SIZE: 20px; COLOR: #a6a6a6; FONT-FAMILY: tahoma; TEXT-ALIGN: left
+}
+.skins_navigation {
+	FONT-WEIGHT: bold; FONT-SIZE: 11px; COLOR: #ff8707; FONT-FAMILY: tahoma; TEXT-DECORATION: underline
+}
+.skins_page_navigation {
+	FONT-WEIGHT: bold; FONT-SIZE: 11px; COLOR: #4c4c4c; FONT-FAMILY: tahoma; TEXT-DECORATION: underline
+}
+.buy_body {
+	FONT-SIZE: 11px; COLOR: #7c7c7c; FONT-FAMILY: tahoma; BACKGROUND-COLOR: #f7f7f7; TEXT-ALIGN: justify
+}
+.buy_body_price {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: red; FONT-FAMILY: tahoma; BACKGROUND-COLOR: #f7f7f7; TEXT-ALIGN: justify
+}
+.buy_body_price_bottom {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: red; BORDER-BOTTOM: #cccccc 1px solid; FONT-FAMILY: tahoma; BACKGROUND-COLOR: #f7f7f7; TEXT-ALIGN: justify
+}
+.buy_body_price_exp {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #7c7c7c; FONT-FAMILY: tahoma; BACKGROUND-COLOR: #f7f7f7; TEXT-ALIGN: justify
+}
+.buy_body_all {
+	BORDER-RIGHT: #cccccc 1px solid; BORDER-TOP: #cccccc 1px solid; FONT-SIZE: 11px; BORDER-LEFT: #cccccc 1px solid; COLOR: #7c7c7c; BORDER-BOTTOM: #cccccc 1px solid; FONT-FAMILY: tahoma; BACKGROUND-COLOR: #f7f7f7; TEXT-ALIGN: justify
+}
+.buy_body_top {
+	BORDER-TOP: #cccccc 1px solid; FONT-SIZE: 11px; COLOR: #7c7c7c; FONT-FAMILY: tahoma; BACKGROUND-COLOR: #f7f7f7; TEXT-ALIGN: justify
+}
+.buy_body_left_top {
+	BORDER-TOP: #cccccc 1px solid; FONT-SIZE: 11px; BORDER-LEFT: #cccccc 1px solid; COLOR: #7c7c7c; FONT-FAMILY: tahoma; BACKGROUND-COLOR: #f7f7f7; TEXT-ALIGN: justify
+}
+.buy_body_right_top {
+	BORDER-RIGHT: #cccccc 1px solid; BORDER-TOP: #cccccc 1px solid; FONT-SIZE: 11px; COLOR: #7c7c7c; FONT-FAMILY: tahoma; BACKGROUND-COLOR: #f7f7f7; TEXT-ALIGN: justify
+}
+.buy_body_left {
+	FONT-SIZE: 11px; BORDER-LEFT: #cccccc 1px solid; COLOR: #7c7c7c; FONT-FAMILY: tahoma; BACKGROUND-COLOR: #f7f7f7; TEXT-ALIGN: justify
+}
+.buy_body_left_right {
+	BORDER-RIGHT: #cccccc 1px solid; FONT-SIZE: 1px; BORDER-LEFT: #cccccc 1px solid; COLOR: #7c7c7c; FONT-FAMILY: tahoma; BACKGROUND-COLOR: #f7f7f7; TEXT-ALIGN: justify
+}
+.buy_body_right {
+	BORDER-RIGHT: #cccccc 1px solid; FONT-SIZE: 11px; COLOR: #7c7c7c; FONT-FAMILY: tahoma; BACKGROUND-COLOR: #f7f7f7; TEXT-ALIGN: justify
+}
+.buy_body_left_bottom {
+	FONT-SIZE: 11px; BORDER-LEFT: #cccccc 1px solid; COLOR: #7c7c7c; BORDER-BOTTOM: #cccccc 1px solid; FONT-FAMILY: tahoma; BACKGROUND-COLOR: #f7f7f7; TEXT-ALIGN: justify
+}
+.buy_body_leftright_bottom {
+	BORDER-RIGHT: #cccccc 1px solid; FONT-SIZE: 11px; BORDER-LEFT: #cccccc 1px solid; COLOR: #7c7c7c; BORDER-BOTTOM: #cccccc 1px solid; FONT-FAMILY: tahoma; BACKGROUND-COLOR: #f7f7f7; TEXT-ALIGN: justify
+}
+.buy_body_leftright_top {
+	BORDER-RIGHT: #cccccc 1px solid; BORDER-TOP: #cccccc 1px solid; FONT-SIZE: 11px; BORDER-LEFT: #cccccc 1px solid; COLOR: #7c7c7c; FONT-FAMILY: tahoma; BACKGROUND-COLOR: #f7f7f7; TEXT-ALIGN: justify
+}
+.buy_body_right_bottom {
+	BORDER-RIGHT: #cccccc 1px solid; FONT-SIZE: 11px; COLOR: #7c7c7c; BORDER-BOTTOM: #cccccc 1px solid; FONT-FAMILY: tahoma; BACKGROUND-COLOR: #f7f7f7; TEXT-ALIGN: justify
+}
+.buy_body_bottom {
+	FONT-SIZE: 11px; COLOR: #7c7c7c; BORDER-BOTTOM: #cccccc 1px solid; FONT-FAMILY: tahoma; BACKGROUND-COLOR: #f7f7f7; TEXT-ALIGN: justify
+}
+.buy_body_top_bottom {
+	BORDER-TOP: #cccccc 1px solid; FONT-SIZE: 11px; COLOR: #7c7c7c; BORDER-BOTTOM: #cccccc 1px solid; FONT-FAMILY: tahoma; BACKGROUND-COLOR: #f7f7f7; TEXT-ALIGN: justify
+}
+.buy_body_top_bottom_left {
+	BORDER-TOP: #cccccc 1px solid; FONT-SIZE: 11px; BORDER-LEFT: #cccccc 1px solid; COLOR: #7c7c7c; BORDER-BOTTOM: #cccccc 1px solid; FONT-FAMILY: tahoma; BACKGROUND-COLOR: #f7f7f7; TEXT-ALIGN: justify
+}
+.buy_body_top_bottom_right {
+	BORDER-RIGHT: #cccccc 1px solid; BORDER-TOP: #cccccc 1px solid; FONT-SIZE: 11px; COLOR: #7c7c7c; BORDER-BOTTOM: #cccccc 1px solid; FONT-FAMILY: tahoma; BACKGROUND-COLOR: #f7f7f7; TEXT-ALIGN: justify
+}
+.img_button {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; BORDER-LEFT: 0px; BORDER-BOTTOM: 0px
+}
+.attention {
+	COLOR: red
+}
+.nm_info_text {
+	BORDER-RIGHT: #cccccc 1px solid; FONT-SIZE: 11px;  COLOR: #0890df; FONT-FAMILY: tahoma; TEXT-ALIGN: left
+}
+.nm_form_text {
+	BORDER-RIGHT: #cccccc 1px solid; FONT-SIZE: 17px;  COLOR: #0890df; FONT-FAMILY: tahoma; TEXT-ALIGN: left
+}
+.nm_info_title {
+FONT-SIZE: 20px;  COLOR: #0890df; FONT-FAMILY: tahoma; TEXT-ALIGN: left
+}
+
+					.explanation_text{
+						font-family:tahoma;
+						font-size:11px;
+						color:#7C7C7C;
+						border-top:1px solid #CCCCCC;
+						text-align:left;
+						font-weight:normal;
+						font-style:italic;
+					}
+					.nicknames_title{
+						font-family:tahoma;
+						font-size:11px;
+						color:#7C7C7C;
+						border-bottom:1px solid #CCCCCC;
+						border-left:1px solid #CCCCCC;
+						text-align:center;
+						font-weight:bold;
+					}
+					.nicknames_data{
+						font-family:tahoma;
+						font-size:11px;
+						color:#7C7C7C;
+						border-bottom:1px solid #CCCCCC;
+						border-left:1px solid #CCCCCC;
+						text-align:center;
+					}
+					}
+
+.nm_info_tit {
+FONT-SIZE: 11px; MARGIN-LEFT: 2px;  COLOR: #0890df; FONT-FAMILY: tahoma; TEXT-ALIGN: center;
+}
+.buy_body_u {
+	FONT-SIZE: 11px; COLOR: #7c7c7c; FONT-FAMILY: tahoma;  TEXT-ALIGN: justify
+}
+.small{
+font-size:9px;padding-top:5px;padding-right:40px;
+}
+.cap{
+font-family:HeliosExt;font-weight:bold;font-size:8px;color:#287729;padding-top:10px;
+}
+.search{
+font-family:tahoma;font-weight:bold;font-size:7px;color:#003F67;CURSOR: hand
+}
+.login{
+font-family:tahoma; font-weight:bold; font-size:7px; color:#003F67;
+}
+.best{
+font-family:HeliosExt;font-weight:bold;font-size:10px;color:#505050;padding-top:60px;padding-right:40px;
+}
+.Nor{
+font-family:tahoma;font-weight:bold;font-size:7px;color:#003F67;
+}
+.nicknames_title_no_b{
+						font-family:tahoma;
+						font-size:11px;
+						color:#7C7C7C;
+						text-align:center;
+						font-weight:bold;
+					}
+.nicknames_data_no_b{
+						font-family:tahoma;
+						font-size:11px;
+						color:#7C7C7C;
+						text-align:center;
+					}

@@ -1,0 +1,2187 @@
+<html><head id="Head">
+<meta http-equiv="content-type" content="text/html; charset=windows-1256"><title>::TE.DATA System - Reseller Module::</title>
+<link rel="stylesheet" type="text/css" href="cc_files/sample.css">
+<script type="text/javascript" src="cc_files/popup-window.js"></script>
+<style type="text/css">
+
+#dropmenudiv{
+position:absolute;
+background-color:#FFF;
+border:1px solid black;
+border-bottom-width: 0;
+font:normal 12px Verdana;
+line-height:18px;
+z-index:100;
+}
+
+#dropmenudiv a{
+width: 100%;
+display: block;
+text-indent: 3px;
+border-bottom: 1px solid black;
+padding: 1px 0;
+text-decoration: none;
+font-weight: bold;
+}
+
+#dropmenudiv a:hover{ /*hover background color*/
+background-color:#999;
+}
+
+/* Sample CSS definition for the example list. Remove if desired */
+.navlist li {
+list-style-type: square;
+width: 135px;
+background-color: #FFFFB9;
+}
+
+</style>
+
+
+<script type="text/javascript">
+
+/***********************************************
+* AnyLink Vertical Menu- © Dynamic Drive (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+//Contents for menu 1
+var Invoicesmenu=new Array()
+Invoicesmenu[0]='<a href="index.php?PID=15">Monthly Invoice</a>'
+Invoicesmenu[1]='<a href="index.php?PID=22">Link Invoices</a>'
+Invoicesmenu[2]='<a href="index.php?PID=23">Link Payment Report</a>'
+
+var LineReqmenu=new Array()
+LineReqmenu[0]='<a href="index.php?PID=86">AUN Confirm Splitting</a>'
+
+//Contents for menu 2, and so on
+var menu2=new Array()
+menu2[0]='<a href="http://www.javascriptkit.com/cutpastejava.shtml">Free JavaScripts</a>'
+menu2[1]='<a href="http://www.javascriptkit.com/javaindex.shtml">JavaScript tutorials</a>'
+menu2[2]='<a href="http://news.bbc.co.uk">JavaScript Reference</a>'
+menu2[4]='<a href="http://www.javascriptkit.com/java/">Java Applets</a>'
+menu2[3]='<a href="http://www.javascriptkit.com/dhtmltutors/">DHTML & CSS</a>'
+menu2[4]='<a href="http://www.javascriptkit.com/howto/">Design Tutorials</a>'
+		
+var disappeardelay=250  //menu disappear speed onMouseout (in miliseconds)
+var horizontaloffset=2 //horizontal offset of menu from $dbname.default location. (0-5 is a good value)
+
+/////No further editting needed
+
+var ie4=document.all
+var ns6=document.getElementById&&!document.all
+
+if (ie4||ns6)
+document.write('<div id="dropmenudiv" style="visibility:hidden;width: 160px" onMouseover="clearhidemenu()" onMouseout="dynamichide(event)"></div>')
+
+function getposOffset(what, offsettype){
+var totaloffset=(offsettype=="left")? what.offsetLeft : what.offsetTop;
+var parentEl=what.offsetParent;
+while (parentEl!=null){
+totaloffset=(offsettype=="left")? totaloffset+parentEl.offsetLeft : totaloffset+parentEl.offsetTop;
+parentEl=parentEl.offsetParent;
+}
+return totaloffset;
+}
+
+
+function showhide(obj, e, visible, hidden, menuwidth){
+if (ie4||ns6)
+dropmenuobj.style.left=dropmenuobj.style.top=-500
+dropmenuobj.widthobj=dropmenuobj.style
+dropmenuobj.widthobj.width=menuwidth
+if (e.type=="click" && obj.visibility==hidden || e.type=="mouseover")
+obj.visibility=visible
+else if (e.type=="click")
+obj.visibility=hidden
+}
+
+function iecompattest(){
+return (document.compatMode && document.compatMode!="BackCompat")? document.documentElement : document.body
+}
+
+function clearbrowseredge(obj, whichedge){
+var edgeoffset=0
+if (whichedge=="rightedge"){
+var windowedge=ie4 && !window.opera? iecompattest().scrollLeft+iecompattest().clientWidth-15 : window.pageXOffset+window.innerWidth-15
+dropmenuobj.contentmeasure=dropmenuobj.offsetWidth
+if (windowedge-dropmenuobj.x-obj.offsetWidth < dropmenuobj.contentmeasure)
+edgeoffset=dropmenuobj.contentmeasure+obj.offsetWidth
+}
+else{
+var topedge=ie4 && !window.opera? iecompattest().scrollTop : window.pageYOffset
+var windowedge=ie4 && !window.opera? iecompattest().scrollTop+iecompattest().clientHeight-15 : window.pageYOffset+window.innerHeight-18
+dropmenuobj.contentmeasure=dropmenuobj.offsetHeight
+if (windowedge-dropmenuobj.y < dropmenuobj.contentmeasure){ //move menu up?
+edgeoffset=dropmenuobj.contentmeasure-obj.offsetHeight
+if ((dropmenuobj.y-topedge)<dropmenuobj.contentmeasure) //up no good either? (position at top of viewable window then)
+edgeoffset=dropmenuobj.y
+}
+}
+return edgeoffset
+}
+
+function populatemenu(what){
+if (ie4||ns6)
+dropmenuobj.innerHTML=what.join("")
+}
+
+
+function dropdownmenu(obj, e, menucontents, menuwidth){
+if (window.event) event.cancelBubble=true
+else if (e.stopPropagation) e.stopPropagation()
+clearhidemenu()
+dropmenuobj=document.getElementById? document.getElementById("dropmenudiv") : dropmenudiv
+populatemenu(menucontents)
+
+if (ie4||ns6){
+showhide(dropmenuobj.style, e, "visible", "hidden", menuwidth)
+dropmenuobj.x=getposOffset(obj, "left")
+dropmenuobj.y=getposOffset(obj, "top")
+dropmenuobj.style.left=dropmenuobj.x-clearbrowseredge(obj, "rightedge")+obj.offsetWidth+horizontaloffset+"px"
+dropmenuobj.style.top=dropmenuobj.y-clearbrowseredge(obj, "bottomedge")+"px"
+}
+
+return clickreturnvalue()
+}
+
+function clickreturnvalue(){
+if (ie4||ns6) return false
+else return true
+}
+
+function contains_ns6(a, b) {
+while (b.parentNode)
+if ((b = b.parentNode) == a)
+return true;
+return false;
+}
+
+function dynamichide(e){
+if (ie4&&!dropmenuobj.contains(e.toElement))
+delayhidemenu()
+else if (ns6&&e.currentTarget!= e.relatedTarget&& !contains_ns6(e.currentTarget, e.relatedTarget))
+delayhidemenu()
+}
+
+function hidemenu(e){
+if (typeof dropmenuobj!="undefined"){
+if (ie4||ns6)
+dropmenuobj.style.visibility="hidden"
+}
+}
+
+function delayhidemenu(){
+if (ie4||ns6)
+delayhide=setTimeout("hidemenu()",disappeardelay)
+}
+
+function clearhidemenu(){
+if (typeof delayhide!="undefined")
+clearTimeout(delayhide)
+}
+
+</script></head><body id="Body"><div id="dropmenudiv" style="visibility:hidden;width: 160px" onmouseover="clearhidemenu()" onmouseout="dynamichide(event)"></div>
+<link id="_DesktopModules_Reports" href="cc_files/module.css" type="text/css" rel="stylesheet">
+<link id="_Portals__default_" href="cc_files/default.css" type="text/css" rel="stylesheet">
+<link id="_Portals__default_Skins_DNN_Minimal_" href="cc_files/skin.css" type="text/css" rel="stylesheet">
+<link id="_Portals_25_" href="cc_files/portal.css" type="text/css" rel="stylesheet">
+<link href="cc_files/style.css" rel="stylesheet" type="text/css">
+
+
+<table style="BORDER-COLLAPSE: collapse" bgcolor="white" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%">
+  <tbody>
+  <tr>
+    <td>&nbsp;</td>
+    <td id="DNN_MainLayoutCell" align="center">
+      <table style="BORDER-COLLAPSE: collapse" border="0" cellpadding="0" height="100%" width="100%">
+        <tbody>
+        <tr class="Control">
+          <td id="dnn_ControlPanel"></td>
+          </tr>
+        <tr>
+          <td style="PADDING-BOTTOM: 10px" align="left" valign="top">
+          <!-- Begin Header Table -->
+            <table id="DNN_HeaderTable" border="0" cellpadding="0" cellspacing="0" width="100%">
+              <tbody>
+              <tr>
+                <td id="DNN_HeaderLeft" rowspan="3" align="left" valign="center" width="223">
+                 <table height="113" width="317">
+                 	<tbody><tr><td valign="bottom">
+						<p align="center">
+						<img src="cc_files/logo-tedotdata.gif" height="87" width="222"></p></td></tr>
+                 </tbody></table>
+                 </td>
+                <td id="DNN_HeaderRightTop" align="right" height="36" nowrap="nowrap" valign="bottom"> 
+				<p align="center"> 
+				<span class="DNN_Search"><b><font color="#CC0000" size="2">
+				<!-- Start Upper Menu -->
+				:: TE.DATA - Reseller Module ::
+                </font></b></span>
+				<!--End Upper Menu -->
+ </p></td></tr>
+              <tr>             
+                <td id="DNN_HeaderRightMiddle" align="left" height="26" valign="center">
+              </td></tr><tr>
+                <td id="DNN_HeaderRightBottom" align="left" height="84" valign="top">
+                <!-- Begin Header Actions Table -->
+                  <table id="DNN_HeaderActions" border="0" cellpadding="0" cellspacing="0" height="103%" width="590">
+                    <tbody>
+                    <tr>
+                      <td colspan="10" valig="middle" align="center">
+						<b>
+						<font color="#CC0000" size="3"><font face="Tahoma">:: TE.DATA :: 
+						Internet Service Provider ::</font><br> </font>
+						<font size="2">:: Be Connected ::</font></b></td>
+                      </tr></tbody></table>
+                      <!-- End Header Actions Table -->
+                      </td></tr></tbody></table>
+                      <!-- End Header Table -->
+                      </td></tr>
+        <tr>
+          <td id="DNN_ContentUserCell" align="left" nowrap="nowrap" valign="center">
+            <table border="0" cellpadding="5" cellspacing="0" width="100%">
+              <tbody>
+              <tr>
+                <td align="left" nowrap="nowrap" valign="center">
+                <span id="dnn_dnnBREADCRUMB_lblBreadCrumb">
+                <a class="DNN_BreadCrumb" href="http://tedotdata.com/system/reseller/index.php">Home</a></span> 
+                </td>
+                <td class="DNN_Login" align="center" nowrap="nowrap" valign="center" width="74%">
+                24 Jun 2015</td>
+                <td align="right" nowrap="nowrap" valign="center">
+                <a class="DNN_Login" id="dnn_dnnLOGIN_cmdLogin" href="http://tedotdata.com/system/reseller/logout.php">Logout</a> </td>
+                </tr>
+                </tbody>
+                </table>
+                </td>
+                </tr>
+                <!-- Start Real Data -->
+        <tr>
+          <td style="PADDING-TOP: 7px" height="100%" valign="top">
+            <table border="0" cellpadding="2" cellspacing="0" width="100%">
+              <tbody>
+              <tr>
+              <!-- Start Left Menu -->
+                <td id="dnn_LeftPane" align="center" valign="top" width="200">
+                            
+  <!-- Start Left Menu First Box-->
+                 <table style="BORDER-COLLAPSE: collapse" border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tbody>
+                    <tr>
+                      <td align="left" valign="top">
+                        <table cellpadding="0" cellspacing="0" width="100%">
+                          <tbody>
+                          <tr>
+                            <td style="BACKGROUND-IMAGE: url('../images/topleft.gif'); BACKGROUND-REPEAT: no-repeat" align="left" height="28" valign="top" width="41">&nbsp;</td>
+                            <td style="BACKGROUND-IMAGE: url('../images/topright.gif'); BACKGROUND-REPEAT: repeat-x" align="left" height="28" valign="top">
+							<span class="Head">Welcome</span><span class="Head" id="dnn_ctr3691_dnnTITLE_lblTitle"> </span></td>
+							</tr>
+							</tbody>
+							</table>
+							</td>
+							</tr>
+                   			 <tr>
+                      <td style="BORDER-RIGHT: #dedede 1px solid; PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; MARGIN-LEFT: 1px; BORDER-LEFT: #dedede 1px solid; PADDING-TOP: 5px" align="left" valign="top"><span class="DNNAlignleft" id="dnn_ctr3691_ContentPane">
+                        <!-- Start Employee Data -->
+                                                <div id="dnn_ctr3691_ModuleContent">
+                        <div class="Normal" id="dnn_ctr3691_HtmlModule_HtmlModule_lblContent">
+                        <table width="184">
+                        <tbody><tr>
+                        <td width="41"><font color="#CC0000"><b>Name:</b></font></td>
+                        <td><b><font color="#696969">abo.saher						</font></b></td>
+                        </tr>
+                        <tr>
+                        <td width="41"><font color="#CC0000"><b>Level:</b></font></td>
+                        <td><b><font color="#696969">Reseller</font>
+						</b></td>
+                        </tr>
+                        <tr>
+                        <td width="41"><font color="#CC0000"><b>Ip:</b></font></td>
+                        <td><b><font color="#696969">41.39.3.27</font></b></td>
+                        </tr>
+                         <tr>
+                        <td colspan="2"><a class="Normal" href="http://tedotdata.com/system/reseller/index.php?PID=13">Change Password</a></td>
+                        </tr>
+                        </tbody></table>
+                        </div>
+                        <!-- End Employee Data -->
+                        </div></span></td></tr>
+                    <tr>
+                      <td align="left">
+                        <table cellpadding="0" cellspacing="0" width="100%">
+                          <tbody>
+                          <tr>
+                            <td align="left" height="13" width="13">
+                            <img src="cc_files/bottomleft.gif" height="13" width="14"></td>
+                            <td style="BORDER-BOTTOM: #dedede 1px solid" align="right" width="100%"><span style="FONT-SIZE: 1pt">&nbsp;</span></td>
+                            <td align="right" height="13" width="13">
+                            <img src="cc_files/bottomright.gif" height="13" width="14"></td></tr></tbody></table></td></tr>
+                    <tr>
+                      <td align="left" valign="center">
+                      <img src="cc_files/pixel.gif" height="1" width="180"></td></tr></tbody></table><br>
+                      <!-- Start Second Table-->
+                  <table style="BORDER-COLLAPSE: collapse" border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tbody>
+                    <tr>
+                      <td align="left" valign="top">
+                        <table cellpadding="0" cellspacing="0" width="100%">
+                          <tbody>
+                          <tr>
+                            <td style="BACKGROUND-IMAGE: url('../images/topleft.gif'); BACKGROUND-REPEAT: no-repeat" align="left" height="28" valign="top" width="41">&nbsp;</td>
+                            <td style="BACKGROUND-IMAGE: url('../images/topright.gif'); BACKGROUND-REPEAT: repeat-x" align="left" height="28" valign="top"><span class="Head" id="dnn_ctr1248_dnnTITLE_lblTitle">Quick Links</span> &nbsp;</td></tr></tbody></table></td></tr>
+                    <tr>
+                      <td style="BORDER-RIGHT: #dedede 1px solid; PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; MARGIN-LEFT: 1px; BORDER-LEFT: #dedede 1px solid; PADDING-TOP: 5px" align="left" valign="top"><span class="DNNAlignleft" id="dnn_ctr1248_ContentPane">
+                        <!-- Start Links -->
+                        <div id="dnn_ctr1248_ModuleContent">
+                        <div id="dnn_ctr1248_Links_Links_pnlList">
+                        <table id="dnn_ctr1248_Links_Links_lstLinks" style="BORDER-COLLAPSE: collapse" summary="Links Design Table" border="0" cellpadding="0" cellspacing="0" width="183">
+                          <tbody>
+                          <tr>
+                            <td valign="top">
+                              <table border="0" cellpadding="4" cellspacing="0" width="178">
+                                <tbody>
+                                <tr>
+                                <td></td></tr></tbody></table></td></tr>
+                                
+                                
+                                                              
+                          <tr>
+                            <td valign="top">
+                              <table border="0" cellpadding="4" cellspacing="0">
+
+                                <tbody>
+                                <tr>
+                                <td nowrap="nowrap">
+								<a class="Normal" href="http://tedotdata.com/system/reseller/index.php?PID=2">Add New Customer</a> &nbsp; 
+                                </td></tr>
+                                <tr>
+                                <td></td></tr>
+                                </tbody>
+
+                                </table>
+                                </td>
+                                </tr>
+                                                                
+                                
+                                
+                              <tr>
+                                <td valign="top">
+                                    <table border="0" cellpadding="4" cellspacing="0">
+                                        <tbody>
+                                            <tr>
+                                            <td nowrap="nowrap">
+                                            <a href="http://tedotdata.com/system/reseller/index.php?PID=4">Customer Information</a> &nbsp; 
+                                            </td></tr>
+                                            <tr>
+                                            <td>
+                                            </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                              </tr>
+                                
+                                
+                                
+                                                              <tr>
+                                <td valign="top">
+                                    <table border="0" cellpadding="4" cellspacing="0">
+                                        <tbody>
+                                            <tr>
+                                            <td nowrap="nowrap">
+                                            <a href="http://tedotdata.com/system/reseller/index.php?PID=5">Service Requests</a> &nbsp; 
+                                            </td></tr>
+                                            <tr>
+                                            <td>
+                                            </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                              </tr>
+                                                                
+                              <tr>
+                                <td valign="top">
+                                    <table border="0" cellpadding="4" cellspacing="0">
+                                        <tbody>
+                                     <tr>
+	                                <td style="height:30px ; vertical-align:middle ;" onmouseover="dropdownmenu(this, event, LineReqmenu, '150px')" onmouseout="delayhidemenu()" valign="middle">
+									<a href="">Line Requests</a></td>
+	                                </tr>
+
+                                            <tr>
+                                            <td>
+                                            </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                              </tr>
+                                
+                                
+                                                              <tr>
+                                <td valign="top">
+                                    <table border="0" cellpadding="4" cellspacing="0">
+                                        <tbody>
+                                                 <tr>
+	                                <td style="height:30px ; vertical-align:middle ;" onmouseover="dropdownmenu(this, event, Invoicesmenu, '150px')" onmouseout="delayhidemenu()" valign="middle">
+									<a href="http://tedotdata.com/system/reseller/index.php?PID=15">
+									<font color="red">Invoices</font></a></td>
+	                                </tr>
+                                            <tr>
+                                            <td>
+                                            </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                              </tr>
+                                                                
+                                
+                                
+                                                    
+                           <tr>
+                            <td valign="top">
+                              <table border="0" cellpadding="4" cellspacing="0">
+                                <tbody>
+                                <tr>
+                                <td nowrap="nowrap">
+								<a href="http://tedotdata.com/system/reseller/index.php?PID=19">Sub-Reseller Invoices</a> &nbsp; 
+                                </td></tr>
+                                <tr>
+                                <td> </td>
+                                </tr>
+                                </tbody>
+                                </table></td>
+                          </tr>
+								
+                          <tr>
+                            <td valign="top">
+                              <table border="0" cellpadding="4" cellspacing="0">
+                                <tbody>
+                                <tr>
+                                <td nowrap="nowrap">
+								<a href="http://tedotdata.com/system/reseller/index.php?PID=20">Monthly Invoice</a> &nbsp; 
+                                </td></tr>
+                                <tr>
+                                <td> </td>
+                                </tr>
+                                </tbody>
+                                </table></td>
+                          </tr>
+
+                          
+                                                    
+                                
+                                
+                                
+                          <tr>
+                            <td valign="top">
+                              <table border="0" cellpadding="4" cellspacing="0">
+                                <tbody>
+                                <tr>
+                                <td nowrap="nowrap">
+								<a href="http://tedotdata.com/system/reseller/index.php?PID=66">Reports</a> &nbsp; 
+                                </td></tr>
+                                <tr>
+                                <td> </td>
+                                </tr>
+                                </tbody>
+                                </table></td>
+                          </tr>
+                          
+                          
+                          
+                          
+                          
+                          
+                                                    
+                           <tr>
+                            <td valign="top">
+                              <table border="0" cellpadding="4" cellspacing="0">
+                                <tbody>
+                                <tr>
+                                <td nowrap="nowrap">
+								<a href="http://tedotdata.com/system/reseller/index.php?PID=17">Add Sub-Reseller</a> &nbsp; 
+                                </td></tr>
+                                <tr>
+                                <td> </td>
+                                </tr>
+                                </tbody>
+                                </table></td>
+                          </tr>
+
+
+                          <tr>
+                            <td valign="top">
+                              <table border="0" cellpadding="4" cellspacing="0">
+                                <tbody>
+                                <tr>
+                                <td nowrap="nowrap">
+								<a href="http://tedotdata.com/system/reseller/index.php?PID=18">Edit Sub-Resellers</a> &nbsp; 
+                                </td></tr>
+                                <tr>
+                                <td> </td>
+                                </tr>
+                                </tbody>
+                                </table></td>
+                          </tr>
+
+                          
+                                                    
+                          
+                          <tr>
+                            <td valign="top">
+                              <table border="0" cellpadding="4" cellspacing="0">
+
+                                <tbody>
+                                <tr>
+                                <td nowrap="nowrap">
+								<a class="Normal" href="http://tedotdata.com/system/reseller/index.php?PID=9116">Old Announcements</a> &nbsp; 
+                                </td></tr>
+                                <tr>
+                                <td></td></tr>
+                                </tbody>
+
+                                </table>
+                                </td>
+                                </tr>                          
+                          
+                          
+                          
+                          
+                          
+                          <tr>
+                            <td valign="top">
+                              <table border="0" cellpadding="4" cellspacing="0">
+                                <tbody>
+                                <tr>
+                                <td></td></tr></tbody></table></td></tr>
+                          <tr>
+                            <td valign="top">
+                              <table border="0" cellpadding="4" cellspacing="0">
+                                </table></td></tr>
+                          <tr>
+                            <td valign="top">
+                              <table border="0" cellpadding="4" cellspacing="0">
+                                <tbody>
+                               <!---<TR>
+                                <TD noWrap>
+								<A class=Normal href="index.php?PID=10" target=_self>Line Requests</A> &nbsp; 
+                                </TD></TR>--->
+                                <tr>
+                                <td></td></tr>
+                                <tr>
+                                <td><span class="Head" id="dnn_ctr1248_dnnTITLE_lblTitle">
+								<font size="2">Thank you For 
+								Trusting Us</font></span></td></tr></tbody></table></td></tr></tbody></table></div>
+                                <span class="DNNAlignleft" id="dnn_ctr1248_ContentPane">
+                                <!-- End Lincks -->
+                                </span></div></span></td></tr>
+                    <tr>
+                      <td align="left">
+                        <table cellpadding="0" cellspacing="0" width="100%">
+                          <tbody>
+                          <tr>
+                            <td align="left" height="13" width="13">
+                            <img src="cc_files/bottomleft.gif" height="13" width="14"></td>
+                            <td style="BORDER-BOTTOM: #dedede 1px solid" align="right" width="100%"><span style="FONT-SIZE: 1pt">&nbsp;</span></td>
+                            <td align="right" height="13" width="13">
+                            <img src="cc_files/bottomright.gif" height="13" width="14"></td></tr></tbody></table></td></tr>
+                    <tr>
+                      <td>
+                      <br>
+                      <img src="cc_files/CustomerCareService.gif" border="1" height="52" width="192">
+                      <table width="185">
+                      <tbody><tr>
+                      <td>
+					</td>
+                      </tr>
+                      </tbody></table>
+                      </td>
+					</tr></tbody></table></td>
+                <td valign="top">
+                  <table border="0" cellpadding="5" cellspacing="0" height="431" width="100%">
+                    <tbody>
+                    <tr>
+                      
+                      
+<form name="Pages" action="index.php" method="Get"></form>
+<input name="PID" id="answer" type="hidden">
+
+<td valign="top">
+<script type="text/javascript">
+<!--
+function myPopup2() {
+window.open( "MobileRenumbering.php", "myWindow", 
+"status = 1, height = 200, width = 300, resizable = 0" )
+}
+//-->
+</script>
+<script>
+function CheckNumber()
+{
+	if(isNaN(NewCustomer.Phone.value))
+	{
+		alert('Phone Should be in number');
+		NewCustomer.Phone.focus();
+		NewCustomer.Phone.value='';
+		Selectcity.Phone.value='';
+		checkcenterals.Phone.value='';
+	}
+	else if(NewCustomer.Phone.value.length!=NewCustomer.NoStNums.value)
+	{
+		alert('Phone Number Should be '+ NewCustomer.NoStNums.value +' Numbers');
+	}
+	else
+	{
+		NewCustomer.PhoneOwnerName.focus();
+	}
+}
+function checkRate(browser)
+{
+	document.getElementById("RateID").value=browser
+}
+function checkLimit(browser)
+{
+	document.getElementById("Limited").value=browser
+}
+function checkIp(browser)
+{
+	document.getElementById("ip").value=browser
+}
+function checkQuality(browser)
+{
+	document.getElementById("Quality").value=browser
+}
+function khidr()
+{
+if(NewCustomer.Phone.value.length==NewCustomer.NoStNums.value)
+{
+	NewCustomer.PhoneOwnerName.focus();
+}
+}
+
+function cleardata()
+{
+NewCustomer.Phone.value='';
+}
+function arabicCheck()
+{
+	var length = NewCustomer.PhoneOwnerName.value.length;
+	var i;
+	var Points = 0;
+
+	for(i=0; i<length;i++)
+	{	//all arabic range with all characters                 // , - . / 0 1 2 3 4 5 6 7 8 9  : ;                         //space
+	 if (! ((NewCustomer.PhoneOwnerName.value.charCodeAt(i)>=1548 && NewCustomer.PhoneOwnerName.value.charCodeAt(i)<=1773) || (NewCustomer.PhoneOwnerName.value.charCodeAt(i)>=44 && NewCustomer.PhoneOwnerName.value.charCodeAt(i)<=59) || NewCustomer.PhoneOwnerName.value.charAt(i)==' ' ))
+		alert('Please Enter Phone Owner Name With arabic');
+		return false;
+	}
+
+    return true;
+}
+</script>
+<form name="Adsltelecome" method="post" target="_blank" action="http://196.219.39.57/Default.aspx">
+ <input name="ctl00$CPH_Content$Login1$UserName" size="12" style="float: right" value="link-tel" type="hidden">
+ <input name="ctl00$CPH_Content$Login1$Password" size="12" style="float: right" value="link-telecom" type="hidden">&nbsp;
+ </form>
+<form name="Egypttelecome" method="post" target="_blank" action="http://196.219.39.57/CustomerCare/ISp_ServiceRequest.aspx">
+<input name="flage" value="1" type="hidden">
+<input name="gov" value="" type="hidden">
+<input name="telno" size="17" value="" type="hidden">&nbsp;
+</form>
+<form name="ownname" method="post" target="_blank" action="https://billing.te.eg/Arabic/BillInquiry.aspx">
+<input name="AreaCode" id="AreaCode" maxlength="3" size="5" value="" type="hidden">
+<input name="TelNo" id="TelNo" maxlength="8" value="" type="hidden">
+</form>
+<form name="Selectcity" method="post" action="">
+<input name="GoveCode" size="3" value="" type="hidden">
+<input name="Address" value="" type="hidden">
+<input name="PaymentMonthsMethod" value="" type="hidden">
+<input name="ContactPhone" value="" type="hidden">
+<input name="ContactMobile" value="" type="hidden">
+<input name="CenteralID" value="" type="hidden">
+<input name="StartNumber" value="" type="hidden">
+<input name="Phone" value="" type="hidden">
+<input name="PhoneOwnerName" value="" type="hidden">
+<input name="PackageID" value="" type="hidden">
+<input name="RateID" value="" id="RateID" type="hidden">
+<input name="ip" id="ip" value="" type="hidden">
+<input name="ServiceKindID" value="" type="hidden">
+<input name="NPromoType" value="" type="hidden">
+<input name="IDimage" value="" type="hidden">
+<input name="PhoneBillimage" value="" type="hidden">
+
+    <input name="OperatorCode" value="0" type="hidden">
+	
+
+</form>
+<form name="checkcenterals" method="post" action="">
+<input name="Address" value="" type="hidden">
+<input name="ContactPhone" value="" type="hidden">
+<input name="ContactMobile" value="" type="hidden">
+<input name="CenteralID" value="" type="hidden">
+<input name="Phone" value="" type="hidden">
+<input name="PhoneOwnerName" value="" type="hidden">
+<input name="PackageID" value="" type="hidden">
+<input name="RateID" value="" id="RateID" type="hidden">
+<input name="NPromoType" value="" type="hidden">
+<input name="IDimage" value="" type="hidden">
+<input name="PhoneBillimage" value="" type="hidden">
+</form>
+<script>
+function Checkall()
+{
+	if(NewCustomer.Address.value=='')
+	{
+		alert('Please Enter Customer Address');
+		NewCustomer.Address.focus();
+	}
+	else if(NewCustomer.ContactPhone.value=='')
+	{
+		alert('Please Enter Customer Phone Number');
+		NewCustomer.ContactPhone.focus();
+	}
+	else if(NewCustomer.OperatorCode.value=='0')
+	{
+		alert('Please select valid Mobile Operator');
+		NewCustomer.OperatorCode.focus();
+	}
+	else if(NewCustomer.ContactMobile.value=='')
+	{
+		alert('Please Enter Customer Mobile Number');
+		NewCustomer.ContactMobile.focus();
+	}
+	else if(NewCustomer.ContactMobile.value.length<'8')
+	{
+		alert('Mobile Must be 11 Digits');
+		NewCustomer.ContactMobile.focus();
+	}
+	else if(NewCustomer.CenteralID.value=='')
+	{
+		alert('Please Select Central');
+		NewCustomer.CenteralID.focus();
+	}
+	else if(NewCustomer.StartNumber.value=='')
+	{
+		alert('Please Select Service Central Code');
+		NewCustomer.StartNumber.focus();
+	}
+	else if(NewCustomer.ServicePhone.value=='')
+	{
+		alert('Please Enter Service Phone Number');
+		NewCustomer.ServicePhone.focus();
+	}
+	else if(NewCustomer.PhoneOwnerName.value=='')
+	{
+		alert('Please Enter Phone Owner Name in Arabic');
+		NewCustomer.PhoneOwnerName.focus();
+	}
+	else if(!isNaN(NewCustomer.PhoneOwnerName.value))
+	{
+		alert('Please Enter Phone Owner Name in Arabic');
+		NewCustomer.PhoneOwnerName.focus();
+	}
+	else if(NewCustomer.PackageID.value=='')
+	{
+		alert('Please Select Package');
+		NewCustomer.PackageID.focus();
+	}
+	else if(NewCustomer.RateID.value=='')
+	{
+		alert('Please Select Rate');
+		NewCustomer.RateID.focus();
+	}
+	else if(NewCustomer.ip.value=='')
+	{
+		alert('Please Enter IP');
+		NewCustomer.ip.focus();
+	}
+	else if(NewCustomer.ServiceKindID.value=='')
+	{
+		alert("Please Select Service Kind");
+	}
+
+	
+
+
+
+
+	
+	
+
+	
+
+
+
+	else
+	{
+			if (confirm("Service Phone - \nOwner Name  \nThank You For Trusting Us.")) 
+		{
+			NewCustomer.submit();
+		}
+	}
+}
+function ResetAll()
+{
+	Selectcity.Address.value='';
+	Selectcity.ContactPhone.value='';
+	Selectcity.ContactMobile.value='';
+	Selectcity.CenteralID.value='';
+	Selectcity.StartNumber.value='';
+	Selectcity.Phone.value='';
+	Selectcity.PhoneOwnerName.value='';
+	Selectcity.PackageID.value='';
+	Selectcity.RateID.value='';
+	Selectcity.ip.value='';
+	Selectcity.submit();
+}
+</script>
+<form name="NewCustomer" method="post" action="index.php?PID=3" enctype="multipart/form-data">
+		<input name="CentDesCaPortID" value="0" type="hidden">
+		<input name="LastCentDesCardPortID" value="0" type="hidden">
+<input name="LPrice" value="" type="hidden">
+<input name="PrictDis" value="0" type="hidden">
+<input name="NewPrice" value="0" type="hidden">
+<input name="TotalPrice" value="0" type="hidden">
+<input name="Password" value="Reseller" type="hidden">
+<table width="783">
+<tbody><tr>
+<td width="163"><b><font color="#008000">Address</font></b></td>
+<td><textarea style="width:150px" name="Address" onchange="Selectcity.Address.value=NewCustomer.Address.value; checkcenterals.Address.value=NewCustomer.Address.value;"></textarea></td>
+</tr>
+<tr>
+<td width="163"><b><font color="#008000">Contact Phone</font></b></td>
+<td><input style="width:150px" name="ContactPhone" onchange="Selectcity.ContactPhone.value=NewCustomer.ContactPhone.value; checkcenterals.ContactPhone.value=NewCustomer.ContactPhone.value;" type="text"></td>
+</tr>
+<tr>
+<td width="163"><b><font color="#008000">Contact Mobile</font></b></td>
+<td><select style="width:50px" name="OperatorCode" onchange="Selectcity.OperatorCode.value=NewCustomer.OperatorCode.value;">
+<option selected="selected" value="0">-</option>
+<option value="010">010</option>
+<option value="011">011</option>
+<option value="012">012</option>
+</select>
+
+<input style="width:95px" maxlength="8" name="ContactMobile" onchange="Selectcity.ContactMobile.value=NewCustomer.ContactMobile.value; checkcenterals.ContactMobile.value=NewCustomer.ContactMobile.value;" type="text">  <a class="txt_tags_hand" onmouseover="this.style.color='#a6a6a6'" onmouseout="this.style.color='#cc0000'" onclick="myPopup2();">Get The New Format</a> </td>
+</tr>
+<tr>
+<td width="163"><b><font color="#008000">E-Mail</font></b></td>
+<td>nasrahmed99@gmail.com<input name="Mail" value="nasrahmed99@gmail.com" type="hidden"></td>
+</tr>
+<tr>
+<td width="163"><b><font color="#008000">Central</font></b></td>
+<td>
+<select name="CenteralID" onchange="checkcenterals.CenteralID.value=NewCustomer.CenteralID.value; Selectcity.CenteralID.value=NewCustomer.CenteralID.value; Selectcity.StartNumber.value=''; Selectcity.Phone.value=''; NewCustomer.ServicePhone.value=''; Selectcity.RateID.value='' ; Selectcity.PackageID.value='' ;  Selectcity.submit();">
+	<option selected="selected">Please Select.......</option>
+
+<optgroup style="color:#F00" label="Exclusive">
+    </optgroup>
+    <optgroup style="color:#F00" label="Global">
+    
+        	</optgroup><optgroup style="color:#060" label="10th Of Ramadan">
+		11			<option style="color:#000" value="287">10th Of Ramadan</option>
+					<option style="color:#000" value="904">Ebny Betak 10ramadan Cabin 1</option>
+					<option style="color:#000" value="403">Industrial Zone</option>
+					<option style="color:#000" value="497">Ramadan Industrial Zone</option>
+					<option style="color:#000" value="402">Talae3</option>
+		        </optgroup>
+            	<optgroup style="color:#060" label="Alexandria">
+		8			<option style="color:#000" value="1191">&#8203;Ameriya Cable 5</option>
+					<option style="color:#000" value="1278">&#8203;Awayed 2 expansion cabinet 3&#8203;</option>
+					<option style="color:#000" value="139">6 October - Alex</option>
+					<option style="color:#000" value="144">Abees 10</option>
+					<option style="color:#000" value="157">Abo Keer</option>
+					<option style="color:#000" value="927">Abo Keer Cabin 1</option>
+					<option style="color:#000" value="796">Abo talat</option>
+					<option style="color:#000" value="1148">ABOTALAT2</option>
+					<option style="color:#000" value="959">Abrag El Sayadla Cabin</option>
+					<option style="color:#000" value="1161">Amariya  Cable 16-7</option>
+					<option style="color:#000" value="1193">Amariya Bank Misr</option>
+					<option style="color:#000" value="1109">Amaroa-Alex Cabinet</option>
+					<option style="color:#000" value="1192">Ameriya Cable 9</option>
+					<option style="color:#000" value="1215">Ameriya Cable El Sharekat</option>
+					<option style="color:#000" value="1334">Ameriya Cable11 And 6</option>
+					<option style="color:#000" value="147">Amreya</option>
+					<option style="color:#000" value="986">Amreya - El Naseria cable 13</option>
+					<option style="color:#000" value="989">Amreya - El Naseria cable 5</option>
+					<option style="color:#000" value="148">Amreya2</option>
+					<option style="color:#000" value="1073">Amyriah Cabin Nasrya Cable 12-5</option>
+					<option style="color:#000" value="155">Asafra</option>
+					<option style="color:#000" value="1100">Asafra Cabin</option>
+					<option style="color:#000" value="1376">Asafra Cabinet 5</option>
+					<option style="color:#000" value="153">Auto</option>
+					<option style="color:#000" value="1321">Auto Cabinet 10</option>
+					<option style="color:#000" value="1291">Auto Cabinet 17</option>
+					<option style="color:#000" value="1213">Auto Indoor Cabinet 1</option>
+					<option style="color:#000" value="154">Awayed</option>
+					<option style="color:#000" value="964">Awayed 1 Abrag Kirosiz</option>
+					<option style="color:#000" value="977">Awayed 1 Cable 1-2-30N Cabin</option>
+					<option style="color:#000" value="992">Awayed 1 Cable 29 Cabinet 2</option>
+					<option style="color:#000" value="979">Awayed 1 Cable 3-4-30N Cabin</option>
+					<option style="color:#000" value="994">Awayed 1 Cable 5-6-7-30N Cabinet</option>
+					<option style="color:#000" value="131">Awayed 2</option>
+					<option style="color:#000" value="1293">Awayed 2 Cabinet 20</option>
+					<option style="color:#000" value="1397">Awayed 2 Cabinet 21</option>
+					<option style="color:#000" value="1382">Awayed 2 Cabinet 22</option>
+					<option style="color:#000" value="966">Awayed 2 Cable 29 Cabinet 2</option>
+					<option style="color:#000" value="993">Awayed 2 Cable 7-8-29N Cabinet</option>
+					<option style="color:#000" value="1099">Awayed 2 Cable N38 Cabinet1</option>
+					<option style="color:#000" value="1060">Awayed 2 Cable N38 Cabinet2</option>
+					<option style="color:#000" value="1043">Awayed 2 Cable N38 Cabinet3</option>
+					<option style="color:#000" value="1229">Awayed 2 expansion cabinet 1</option>
+					<option style="color:#000" value="1230">Awayed 2 expansion cabinet 2</option>
+					<option style="color:#000" value="291">Baheeg</option>
+					<option style="color:#000" value="774">Basra</option>
+					<option style="color:#000" value="145">Betash 1</option>
+					<option style="color:#000" value="138">Betash 2</option>
+					<option style="color:#000" value="1118">Borg Arab Manteka El Senaeya 3rd Cabinet 3</option>
+					<option style="color:#000" value="1190">Borg Arab Manteka El Senaeya 4th Cabinet 9</option>
+					<option style="color:#000" value="1167">Borg Arab Manteka Senaeya 3 Cabinet 5</option>
+					<option style="color:#000" value="151">Borg El-Arab</option>
+					<option style="color:#000" value="1080">El Awayed II Cable N38 Cabinet1</option>
+					<option style="color:#000" value="136">El Dekhela</option>
+					<option style="color:#000" value="149">El Hawareya</option>
+					<option style="color:#000" value="1319">El Naseria cable 5 El Amariya Cabin</option>
+					<option style="color:#000" value="159">El-Fath</option>
+					<option style="color:#000" value="963">El-Fath Mogama3 Abd El men3m gaber Cabin</option>
+					<option style="color:#000" value="132">Elmax</option>
+					<option style="color:#000" value="939">Ezbet Mohsen Cabin 1</option>
+					<option style="color:#000" value="940">Ezbet Mohsen Cabin 2</option>
+					<option style="color:#000" value="941">Ezbet Mohsen Cabin 3</option>
+					<option style="color:#000" value="942">Ezbet Mohsen Cabin 4</option>
+					<option style="color:#000" value="906">Ezbet Mohsen Cabin 5</option>
+					<option style="color:#000" value="943">Ezbet Mohsen Cabin 6</option>
+					<option style="color:#000" value="931">Ezbet Mohsen Cabin 7</option>
+					<option style="color:#000" value="888">Ezbet Mohsen Cabin 8</option>
+					<option style="color:#000" value="1273">Fath Cabinet 5</option>
+					<option style="color:#000" value="1292">Fath Cabinet 6</option>
+					<option style="color:#000" value="1238">Fathh Cabinet 7</option>
+					<option style="color:#000" value="1274">Fathh Cabinet 8</option>
+					<option style="color:#000" value="105">Gleem</option>
+					<option style="color:#000" value="1225">Gleem Cabinet 10</option>
+					<option style="color:#000" value="1045">Gleem Fahmy Wesa st.</option>
+					<option style="color:#000" value="143">Hadra</option>
+					<option style="color:#000" value="1322">Hadra Cabinet 26</option>
+					<option style="color:#000" value="1384">Hadra Cabinet 7</option>
+					<option style="color:#000" value="1128">Hadra El Gedida-Gharb Somed Cabinet3</option>
+					<option style="color:#000" value="146">Hanouvil-1</option>
+					<option style="color:#000" value="137">Hanovil 2-Kebly</option>
+					<option style="color:#000" value="1350">Hanovil Cabinet 01</option>
+					<option style="color:#000" value="1377">Hanovil Cabinet 3</option>
+					<option style="color:#000" value="1275">Hanovil Cabinet 4</option>
+					<option style="color:#000" value="1357">Hanovil Qebly Cabinet 03</option>
+					<option style="color:#000" value="140">Haramain</option>
+					<option style="color:#000" value="133">Ibrahimia</option>
+					<option style="color:#000" value="1303">Kahrabaa Abou Keer</option>
+					<option style="color:#000" value="142">Karmooz</option>
+					<option style="color:#000" value="1084">Karmouz Cabinet 3</option>
+					<option style="color:#000" value="1245">Karmouz Cabinet 6</option>
+					<option style="color:#000" value="1251">Karmouz Cabinet 7</option>
+					<option style="color:#000" value="556">Khorshed</option>
+					<option style="color:#000" value="150">Kingy</option>
+					<option style="color:#000" value="854">Kobry Sharbat</option>
+					<option style="color:#000" value="976">Latrass Cabin</option>
+					<option style="color:#000" value="1140">Loaloet Roshdy Sidi Gaber</option>
+					<option style="color:#000" value="1066">Madraset El Mostakbal -Alex Cabinet</option>
+					<option style="color:#000" value="156">Mamoura</option>
+					<option style="color:#000" value="152">Manshia</option>
+					<option style="color:#000" value="158">Masaken El Semad</option>
+					<option style="color:#000" value="101">Miami</option>
+					<option style="color:#000" value="1054">Miami - Cable 41 Cabin1</option>
+					<option style="color:#000" value="1047">Miami - Cable 41 Cabin2</option>
+					<option style="color:#000" value="1077">Miami - Cable 41 Cabin7</option>
+					<option style="color:#000" value="1243">Miami Cabinet 11</option>
+					<option style="color:#000" value="1346">Miami Cabinet 8</option>
+					<option style="color:#000" value="1383">Miami Cabinet 9</option>
+					<option style="color:#000" value="1022">Miami Malak Hefny Cabinet01</option>
+					<option style="color:#000" value="1097">Miami Sour El Makaber 39-1</option>
+					<option style="color:#000" value="1102">Miami Sour El Makaber 39-2</option>
+					<option style="color:#000" value="1034">Miami Sour El Makaber 40-2</option>
+					<option style="color:#000" value="1106">Miami Sour El Makaber 40-4</option>
+					<option style="color:#000" value="1131">Miami Sour El Makaber 41-6</option>
+					<option style="color:#000" value="882">Miami1-Cabin</option>
+					<option style="color:#000" value="106">Mostafa Kamel</option>
+					<option style="color:#000" value="1233">Mostafa Kamel Cabinet 6</option>
+					<option style="color:#000" value="1347">Mostafa Kamel Cabinet 7</option>
+					<option style="color:#000" value="1355">Mostafa Kamel Cabinet4</option>
+					<option style="color:#000" value="1175">Mostafa Kamel Cabinet5</option>
+					<option style="color:#000" value="285">Moubarak EL Sakaneya</option>
+					<option style="color:#000" value="1059">Rahamna-Alex Cabinet</option>
+					<option style="color:#000" value="1403">Ramsis Village-Etrams Village</option>
+					<option style="color:#000" value="98">Semoha</option>
+					<option style="color:#000" value="967">Semoha Abrag ElFairoza</option>
+					<option style="color:#000" value="1343">Semoha Cabinet 17</option>
+					<option style="color:#000" value="1276">Semoha Cabinet 18</option>
+					<option style="color:#000" value="1041">Semoha Cable17-13 Cabinet</option>
+					<option style="color:#000" value="985">Semoha Gardins El Hadra Cabin</option>
+					<option style="color:#000" value="972">Semoha Nasr Cabinet</option>
+					<option style="color:#000" value="1388">Sidi Gaber Cabinet 17</option>
+					<option style="color:#000" value="128">Sidigaber</option>
+					<option style="color:#000" value="1348">Sidigaber Cabinet 11</option>
+					<option style="color:#000" value="1342">Sidigaber Cabinet 19</option>
+					<option style="color:#000" value="1268">Somoha Abrag Shaker</option>
+					<option style="color:#000" value="141">Tabya</option>
+					<option style="color:#000" value="135">Zawyet Abd -ElKader</option>
+		        </optgroup>
+            	<optgroup style="color:#060" label="Assiout">
+		21			<option style="color:#000" value="664">Abnoub</option>
+					<option style="color:#000" value="545">Abu Teig</option>
+					<option style="color:#000" value="665">Assuit West</option>
+					<option style="color:#000" value="543">Asyout East</option>
+					<option style="color:#000" value="666">Awlad Alyas</option>
+					<option style="color:#000" value="672">Berba</option>
+					<option style="color:#000" value="806">Der Elgnadla</option>
+					<option style="color:#000" value="676">Ghanayem</option>
+					<option style="color:#000" value="677">Manfalout</option>
+					<option style="color:#000" value="1026">Manfalout Gharb Elseka Cabin02</option>
+					<option style="color:#000" value="678">Mankabad</option>
+					<option style="color:#000" value="680">Nekhela</option>
+					<option style="color:#000" value="681">Qouseya</option>
+					<option style="color:#000" value="1094">Zaraby</option>
+		        </optgroup>
+            	<optgroup style="color:#060" label="Aswan">
+		24			<option style="color:#000" value="803">Abo EL Reesh</option>
+					<option style="color:#000" value="546">Aswan East</option>
+					<option style="color:#000" value="1104">Aswan Sharq Cable 13 Cabinet 12</option>
+					<option style="color:#000" value="1088">Aswan Sharq Cable 55 Cabinet 13</option>
+					<option style="color:#000" value="573">Aswan West</option>
+					<option style="color:#000" value="1284">Aswan West - Atlas cabinet 11</option>
+					<option style="color:#000" value="1351">Aswan West Cabinet 18</option>
+					<option style="color:#000" value="1401">Aswan West Cabinet 21</option>
+					<option style="color:#000" value="1176">Aswan West Caninet 12</option>
+					<option style="color:#000" value="1188">Aswan West Caninet 13</option>
+					<option style="color:#000" value="1236">Aswan West Caninet 15</option>
+					<option style="color:#000" value="1241">Aswan West Caninet 16</option>
+					<option style="color:#000" value="1316">Aswan West Caninet 17</option>
+					<option style="color:#000" value="1332">Aswan West Caninet 19</option>
+					<option style="color:#000" value="1208">Bazar Refaay - Aswan West</option>
+					<option style="color:#000" value="1206">Emarat Akad - Aswan West</option>
+					<option style="color:#000" value="1017">Ezab Kima Cabinet</option>
+					<option style="color:#000" value="761">Gharb EL khazzan</option>
+					<option style="color:#000" value="690">High Dam (El Sad El 3aly)</option>
+					<option style="color:#000" value="1221">Kadet Garad - Aswan West</option>
+					<option style="color:#000" value="1098">kima Cable 1 Aswan East</option>
+					<option style="color:#000" value="691">Komombo</option>
+					<option style="color:#000" value="1217">Kror - Aswan West</option>
+					<option style="color:#000" value="1016">Masaken Kima Aswan East</option>
+					<option style="color:#000" value="1223">Nady Tahrir - Aswan West</option>
+					<option style="color:#000" value="1092">Sadaqah Cabin</option>
+					<option style="color:#000" value="1209">Salah Moghatah - Aswan West</option>
+		        </optgroup>
+            	<optgroup style="color:#060" label="Bani Swef">
+		25			<option style="color:#000" value="567">Bani Swef</option>
+					<option style="color:#000" value="568">Bani Swef 2</option>
+					<option style="color:#000" value="1132">Bany Saleh Cabinet</option>
+					<option style="color:#000" value="1120">beba</option>
+					<option style="color:#000" value="692">Feshn</option>
+					<option style="color:#000" value="988">Newara Cabin</option>
+					<option style="color:#000" value="1136">Sods</option>
+					<option style="color:#000" value="1135">sods beba cable 2 cabinet 2</option>
+		        </optgroup>
+            	<optgroup style="color:#060" label="Behera">
+		2			<option style="color:#000" value="1255">&#8203;Delengat Cabinet 7&#8203;</option>
+					<option style="color:#000" value="1286">&#8203;Kafr El Dawar Cabinet 21&#8203;</option>
+					<option style="color:#000" value="962">Abo EL khawey</option>
+					<option style="color:#000" value="1096">Abo El Matamir Cabin 1 Cable 18</option>
+					<option style="color:#000" value="557">Abo El Sho2af</option>
+					<option style="color:#000" value="1155">Abo ElMatamer cable16 cabin01</option>
+					<option style="color:#000" value="88">Abo Hommos</option>
+					<option style="color:#000" value="1134">Abo Homos Cabinet 6</option>
+					<option style="color:#000" value="1246">Abo Homos Cabinet 9</option>
+					<option style="color:#000" value="1157">Abo Homos Cable 6</option>
+					<option style="color:#000" value="900">Abo Khrash</option>
+					<option style="color:#000" value="890">Abo Moslem</option>
+					<option style="color:#000" value="968">Abou Mangog Cabin 1</option>
+					<option style="color:#000" value="969">Abou Mangog Cabin 2</option>
+					<option style="color:#000" value="272">Abrag Hamam</option>
+					<option style="color:#000" value="255">Abu Elmatameer</option>
+					<option style="color:#000" value="1222">Adfena - Rashied Cabinet 2</option>
+					<option style="color:#000" value="1179">Adfena - Rashied Cabinet1</option>
+					<option style="color:#000" value="532">Ali Ebn Abi Taleb</option>
+					<option style="color:#000" value="1116">Armania</option>
+					<option style="color:#000" value="584">Ashoor</option>
+					<option style="color:#000" value="839">Azema</option>
+					<option style="color:#000" value="29">Badr</option>
+					<option style="color:#000" value="1408">Badr Cable 8 Cabin 6</option>
+					<option style="color:#000" value="1404">Badr Cable Cabin 5</option>
+					<option style="color:#000" value="1174">Badr El Fath Baghdad Cabinet 4</option>
+					<option style="color:#000" value="1005">Bany Helal Cabin</option>
+					<option style="color:#000" value="264">BASANTWAY CABIN</option>
+					<option style="color:#000" value="502">Bereigat</option>
+					<option style="color:#000" value="271">Berket Ghatas</option>
+					<option style="color:#000" value="860">Bernogy</option>
+					<option style="color:#000" value="788">Betoras</option>
+					<option style="color:#000" value="261">Boleen</option>
+					<option style="color:#000" value="31">Borg Rasheed</option>
+					<option style="color:#000" value="1285">Cabin Damanhour east - mostshfa el3yon</option>
+					<option style="color:#000" value="1067">Damanhour cable 1 Karakes Cabinet</option>
+					<option style="color:#000" value="90">Damanhour East</option>
+					<option style="color:#000" value="1028">Damanhour East Cabin 09</option>
+					<option style="color:#000" value="1010">Damanhour East Cabin A111</option>
+					<option style="color:#000" value="1252">Damanhour East Cabinet 10</option>
+					<option style="color:#000" value="1258">Damanhour East Cabinet 11</option>
+					<option style="color:#000" value="1311">Damanhour East Cabinet 15</option>
+					<option style="color:#000" value="1072">Damanhour Falaka cable 6 cabin</option>
+					<option style="color:#000" value="1046">Damanhour Falaka cable 6-2 cabin</option>
+					<option style="color:#000" value="1228">Damanhour Gharb - Dasonas</option>
+					<option style="color:#000" value="1025">Damanhour Shark Cable 8</option>
+					<option style="color:#000" value="91">Damanhour West</option>
+					<option style="color:#000" value="1381">Damanhour West Cabinet 14</option>
+					<option style="color:#000" value="1253">Damanhour West Cabinet 16</option>
+					<option style="color:#000" value="1247">Damanhour West Cabinet 17</option>
+					<option style="color:#000" value="1075">Damanhour West Cable1-06</option>
+					<option style="color:#000" value="1051">Damanhour West Cable1-08</option>
+					<option style="color:#000" value="1053">Damanhour West Cable13-03</option>
+					<option style="color:#000" value="1070">Damanhour West Cable13-07</option>
+					<option style="color:#000" value="1079">Damanhour West Cable14-04</option>
+					<option style="color:#000" value="1044">Damanhour west cable24-05</option>
+					<option style="color:#000" value="1385">Damanhur East Cabinet 13</option>
+					<option style="color:#000" value="1380">Damanhur East Cabinet 8</option>
+					<option style="color:#000" value="1254">Delengat Cabinet 4</option>
+					<option style="color:#000" value="1082">Delengat Cable 10</option>
+					<option style="color:#000" value="509">Denshal</option>
+					<option style="color:#000" value="270">DEST ELASHRAF</option>
+					<option style="color:#000" value="1023">Ebadeya Damahour west</option>
+					<option style="color:#000" value="89">Edco</option>
+					<option style="color:#000" value="36">Edfyna</option>
+					<option style="color:#000" value="1264">Edko Cabinet 2</option>
+					<option style="color:#000" value="1290">Edko Cabinet 3</option>
+					<option style="color:#000" value="1265">Edko Cabinet 4</option>
+					<option style="color:#000" value="1297">Edko Cabinet 5</option>
+					<option style="color:#000" value="1111">Edko Cable 7 (6 October) Cabinet1</option>
+					<option style="color:#000" value="820">El Azima</option>
+					<option style="color:#000" value="280">El Bostan (Beheira)</option>
+					<option style="color:#000" value="48">El Dahria</option>
+					<option style="color:#000" value="97">El Dlngat</option>
+					<option style="color:#000" value="277">EL Emam EL Hussein</option>
+					<option style="color:#000" value="262">EL Hadien</option>
+					<option style="color:#000" value="536">EL Hagar EL Mahrook</option>
+					<option style="color:#000" value="103">El Hareer El-Sena3y</option>
+					<option style="color:#000" value="269">El Kafr EL Gdeed</option>
+					<option style="color:#000" value="504">El Ma3raka</option>
+					<option style="color:#000" value="53">El Mahmoudya (Beheira)</option>
+					<option style="color:#000" value="258">El masien</option>
+					<option style="color:#000" value="259">El Mazra3a EL 2aleya</option>
+					<option style="color:#000" value="124">El Meadeya</option>
+					<option style="color:#000" value="102">El Nagah</option>
+					<option style="color:#000" value="125">El Rahmanya (Beheira)</option>
+					<option style="color:#000" value="521">EL Safaseef</option>
+					<option style="color:#000" value="895">El Salam - Abo El Matamir</option>
+					<option style="color:#000" value="1007">El Sheikh Ahmed Cabin</option>
+					<option style="color:#000" value="104">El Tawfekeya</option>
+					<option style="color:#000" value="263">El Tood</option>
+					<option style="color:#000" value="1390">Elmagd Cabinet 3</option>
+					<option style="color:#000" value="1349">Elrahebat Cabinet 1</option>
+					<option style="color:#000" value="1391">Emleet</option>
+					<option style="color:#000" value="950">Eskan EL SHabab - Eytay EL Barod Cabin</option>
+					<option style="color:#000" value="1015">Eskan EL Shabab- Damanhour - Cabin</option>
+					<option style="color:#000" value="96">Eytay El-Barod</option>
+					<option style="color:#000" value="1014">Falaka cable 6 cabin</option>
+					<option style="color:#000" value="910">Fath</option>
+					<option style="color:#000" value="843">Gabares</option>
+					<option style="color:#000" value="537">Gawad Hosny</option>
+					<option style="color:#000" value="1156">Gharb Itay El Baroud</option>
+					<option style="color:#000" value="1064">Hamammye w Ghorbal cabin1 B7-B8</option>
+					<option style="color:#000" value="902">Helawgah</option>
+					<option style="color:#000" value="95">Hosh Issa</option>
+					<option style="color:#000" value="1008">Houna Cabin</option>
+					<option style="color:#000" value="1261">Housh Eissa Cabinet 11</option>
+					<option style="color:#000" value="1257">Housh Eissa Cabinet 18</option>
+					<option style="color:#000" value="1147">Itay El Baroud Cabinet 10</option>
+					<option style="color:#000" value="1127">Itay El Baroud Cabinet 11</option>
+					<option style="color:#000" value="1392">Itay El Baroud Cable 17 Cabin 12</option>
+					<option style="color:#000" value="1393">Itay El Baroud Cable 19 Cabin 15</option>
+					<option style="color:#000" value="897">Janaklis Cabin</option>
+					<option style="color:#000" value="1166">kafer el dawar cabin cable 26</option>
+					<option style="color:#000" value="56">Kafr el Dawar</option>
+					<option style="color:#000" value="971">Kafr el Dawar Cabin 2 Cable 17</option>
+					<option style="color:#000" value="922">Kafr el Dawar Cabin Cable 11</option>
+					<option style="color:#000" value="923">Kafr el Dawar Cabin Cable 13</option>
+					<option style="color:#000" value="924">Kafr el Dawar Cabin Cable 14</option>
+					<option style="color:#000" value="1262">Kafr El Dawar Cabinet 10</option>
+					<option style="color:#000" value="1263">Kafr El Dawar Cabinet 14</option>
+					<option style="color:#000" value="1281">Kafr El Dawar Cabinet 15</option>
+					<option style="color:#000" value="1282">Kafr El Dawar Cabinet 23</option>
+					<option style="color:#000" value="1173">Kafr El Dawar Cabinet9</option>
+					<option style="color:#000" value="1037">Kafr El Dawar Cable 17-1 Cabin</option>
+					<option style="color:#000" value="1039">Kafr El Dawar Cable 25 Cabin</option>
+					<option style="color:#000" value="1027">Kafr El Dawar Cable 32 Cabin</option>
+					<option style="color:#000" value="1011">Kafr El Sheikh Makhlof - Eytay EL Barod Cabin</option>
+					<option style="color:#000" value="981">Kafr Masaad Cabin</option>
+					<option style="color:#000" value="268">Karyet Feisha-Behera</option>
+					<option style="color:#000" value="987">Khamara and Eyoon Cabin</option>
+					<option style="color:#000" value="1009">Klehsan - Eytay EL Barod Cabin</option>
+					<option style="color:#000" value="1402">Kom Abou Homos Cabin 8</option>
+					<option style="color:#000" value="1399">Kom Abou Homos Cable2 Cabin 16</option>
+					<option style="color:#000" value="921">Kom El Qanater Abu Homos</option>
+					<option style="color:#000" value="120">Kom Elfarag</option>
+					<option style="color:#000" value="94">Kom Hamada</option>
+					<option style="color:#000" value="1146">Kom Hamada  - demtewa</option>
+					<option style="color:#000" value="1145">Kom Hamada Cabinet 07</option>
+					<option style="color:#000" value="1162">Kom Hamada Cabinet 5</option>
+					<option style="color:#000" value="1171">Kom Hamada Cabinet 6</option>
+					<option style="color:#000" value="1227">Kom Hamada Cabinet 8</option>
+					<option style="color:#000" value="1181">Kom Hamada Cabinet 9</option>
+					<option style="color:#000" value="1105">Kom Hamada-Bolin Cabinet1</option>
+					<option style="color:#000" value="1394">Kom Shreik</option>
+					<option style="color:#000" value="901">Kom Zamran</option>
+					<option style="color:#000" value="597">Koom El Kanater</option>
+					<option style="color:#000" value="39">Koom El Nasr</option>
+					<option style="color:#000" value="129">Lakana</option>
+					<option style="color:#000" value="121">Mahalet Elamir</option>
+					<option style="color:#000" value="267">Mahalet Farnouy</option>
+					<option style="color:#000" value="911">Mahmoud Shaltout</option>
+					<option style="color:#000" value="1256">Mahmoudia Cabinet 1</option>
+					<option style="color:#000" value="1266">Mahmoudia Cabinet 2</option>
+					<option style="color:#000" value="1271">Mahmoudia Cabinet 3</option>
+					<option style="color:#000" value="501">Manshyet Abo Keer</option>
+					<option style="color:#000" value="1389">Mstnad Cabinet 1</option>
+					<option style="color:#000" value="1122">NAKHLA BAHRYA</option>
+					<option style="color:#000" value="847">NASSER-Behira</option>
+					<option style="color:#000" value="896">Nebira</option>
+					<option style="color:#000" value="513">Nedieba</option>
+					<option style="color:#000" value="1204">Negelah - Kom Sherik</option>
+					<option style="color:#000" value="1414">Negelah - Kom Sherik Cabinet1</option>
+					<option style="color:#000" value="126">Nekla EL 3enab</option>
+					<option style="color:#000" value="838">Nobacid</option>
+					<option style="color:#000" value="99">Nobaria</option>
+					<option style="color:#000" value="889">Nobariah Manteqa Gem</option>
+					<option style="color:#000" value="503">Om Saber</option>
+					<option style="color:#000" value="122">Orien</option>
+					<option style="color:#000" value="290">Othman Ebn Affan</option>
+					<option style="color:#000" value="789">Qafela</option>
+					<option style="color:#000" value="844">qaher</option>
+					<option style="color:#000" value="1210">Rahmania Cable 9</option>
+					<option style="color:#000" value="68">Rasheed</option>
+					<option style="color:#000" value="1216">Rashied Cable 2 El Bosialy</option>
+					<option style="color:#000" value="1237">Rashied Cable 6 Cabinet1</option>
+					<option style="color:#000" value="1202">Rashied Cable 9</option>
+					<option style="color:#000" value="764">Saad Zaghlol</option>
+					<option style="color:#000" value="286">Saft El Horreya</option>
+					<option style="color:#000" value="516">Sahel</option>
+					<option style="color:#000" value="260">Sanhor</option>
+					<option style="color:#000" value="815">Santties</option>
+					<option style="color:#000" value="71">Shaboor</option>
+					<option style="color:#000" value="1138">Shabrakheet Cabinet 1</option>
+					<option style="color:#000" value="1170">Shabrakheet Cabinet 2</option>
+					<option style="color:#000" value="1152">Shabrakheet Cabinet 3</option>
+					<option style="color:#000" value="1395">Shabrakheet Cabinet 5</option>
+					<option style="color:#000" value="266">Sharnoub</option>
+					<option style="color:#000" value="1013">Shended Cable12 - Eytay EL Barod Cabin</option>
+					<option style="color:#000" value="1029">Shended Cable12 Cabinet</option>
+					<option style="color:#000" value="506">Shisht</option>
+					<option style="color:#000" value="76">Shobra Kheit</option>
+					<option style="color:#000" value="1068">Shobra Kheit Cabin</option>
+					<option style="color:#000" value="1267">Shubrakheet Cabinet 22</option>
+					<option style="color:#000" value="257">Sidi Ghazy</option>
+					<option style="color:#000" value="995">Sidi Ghazy Cable 18 Cabin</option>
+					<option style="color:#000" value="119">Sidi Okba</option>
+					<option style="color:#000" value="581">Smokhrat</option>
+					<option style="color:#000" value="907">Tayareah Cabin</option>
+					<option style="color:#000" value="82">Tiba</option>
+					<option style="color:#000" value="858">Tolombat Barseek</option>
+					<option style="color:#000" value="93">Wady Natroun</option>
+					<option style="color:#000" value="1110">waked cabin 04</option>
+					<option style="color:#000" value="299">Waked-Behira</option>
+					<option style="color:#000" value="311">Zawyet Ghazal</option>
+					<option style="color:#000" value="757">Zawyet Hamour</option>
+					<option style="color:#000" value="886">Zawyet Sakr</option>
+					<option style="color:#000" value="1114">Zebedah</option>
+					<option style="color:#000" value="256">Zhoor El Omara</option>
+					<option style="color:#000" value="1415">Zomran Elnakhil Cabin 10</option>
+					<option style="color:#000" value="265">ZOQAYLAHH</option>
+		        </optgroup>
+            	<optgroup style="color:#060" label="Cairo">
+		7			<option style="color:#000" value="164">6 October 1</option>
+					<option style="color:#000" value="161">6 October 2</option>
+					<option style="color:#000" value="275">6 October 3</option>
+					<option style="color:#000" value="276">6 October 4</option>
+					<option style="color:#000" value="538">7ay Sheikh Zayed 2</option>
+					<option style="color:#000" value="115">Abbasia</option>
+					<option style="color:#000" value="1340">Abbasia Cable 37-23</option>
+					<option style="color:#000" value="1091">Abbasia Cable 49</option>
+					<option style="color:#000" value="1327">Abbasia Cable 72-40</option>
+					<option style="color:#000" value="1301">Abbasia Cable 74-44</option>
+					<option style="color:#000" value="1318">Abbasia Cable 75-51</option>
+					<option style="color:#000" value="165">Abo Elnomros</option>
+					<option style="color:#000" value="166">Abo Rawash</option>
+					<option style="color:#000" value="118">Ain-Shams</option>
+					<option style="color:#000" value="167">Almaza</option>
+					<option style="color:#000" value="168">Amireya</option>
+					<option style="color:#000" value="169">Atfeeh</option>
+					<option style="color:#000" value="244">Bab Lok</option>
+					<option style="color:#000" value="245">Bahteem</option>
+					<option style="color:#000" value="1121">Banafseg 4-2  cabin</option>
+					<option style="color:#000" value="170">Baragil</option>
+					<option style="color:#000" value="171">Bashteel</option>
+					<option style="color:#000" value="172">Begam</option>
+					<option style="color:#000" value="500">Belks</option>
+					<option style="color:#000" value="279">Bevrly Hills</option>
+					<option style="color:#000" value="173">Bihermes</option>
+					<option style="color:#000" value="174">Bolak El Dakrour</option>
+					<option style="color:#000" value="814">Bolak El-Dakrour 1-Motanakel</option>
+					<option style="color:#000" value="175">Bolak El-Dakrour 2-Motanakel</option>
+					<option style="color:#000" value="176">Dar El Salam</option>
+					<option style="color:#000" value="177">Dokki</option>
+					<option style="color:#000" value="1153">Ebad El Rahman Cabinet3</option>
+					<option style="color:#000" value="178">El Ayaat</option>
+					<option style="color:#000" value="179">El Badrasheen</option>
+					<option style="color:#000" value="180">El Kalag</option>
+					<option style="color:#000" value="181">El Kanater</option>
+					<option style="color:#000" value="1205">El Khanka Cabinet14-08</option>
+					<option style="color:#000" value="1172">El Khanka Cable 22 El Nady El Sodany</option>
+					<option style="color:#000" value="182">El Mounib</option>
+					<option style="color:#000" value="183">El Qalaa</option>
+					<option style="color:#000" value="184">El Saff</option>
+					<option style="color:#000" value="185">El Salam City</option>
+					<option style="color:#000" value="186">El Sherouk</option>
+					<option style="color:#000" value="530">El Tagamo3 El awal</option>
+					<option style="color:#000" value="187">El Tagamo3 El Khames</option>
+					<option style="color:#000" value="188">El Zawia</option>
+					<option style="color:#000" value="189">El Zhour</option>
+					<option style="color:#000" value="190">Embaba</option>
+					<option style="color:#000" value="1061">Fardous City Zohour Cabinet01</option>
+					<option style="color:#000" value="111">Fawala</option>
+					<option style="color:#000" value="191">Giza</option>
+					<option style="color:#000" value="192">Hadayek Helwan</option>
+					<option style="color:#000" value="951">Hadayek Helwan - Cabin ezbet el walda</option>
+					<option style="color:#000" value="193">Haram</option>
+					<option style="color:#000" value="194">Hawamdya</option>
+					<option style="color:#000" value="283">Haykesteb</option>
+					<option style="color:#000" value="116">Heliopolis</option>
+					<option style="color:#000" value="1398">Heliopolis Cable 60-31</option>
+					<option style="color:#000" value="195">Helwan</option>
+					<option style="color:#000" value="1379">Helwan Cabinet 11</option>
+					<option style="color:#000" value="196">Kafr Hakeem 1</option>
+					<option style="color:#000" value="197">Kalyoub</option>
+					<option style="color:#000" value="198">Katamia</option>
+					<option style="color:#000" value="199">Kerdasa</option>
+					<option style="color:#000" value="200">khanka</option>
+					<option style="color:#000" value="1112">Khanka Cabinet11</option>
+					<option style="color:#000" value="1101">Khanka Cabinet6-05</option>
+					<option style="color:#000" value="201">Kobba</option>
+					<option style="color:#000" value="1224">Kobba 2-3 Cabinet19</option>
+					<option style="color:#000" value="1333">Kobba 6-1 Cabin</option>
+					<option style="color:#000" value="202">Maadi1</option>
+					<option style="color:#000" value="203">Maadi2</option>
+					<option style="color:#000" value="134">Maadi3</option>
+					<option style="color:#000" value="204">Maadi4</option>
+					<option style="color:#000" value="300">Madinet Badr El Sena3ya</option>
+					<option style="color:#000" value="163">Mansheyet Nasser</option>
+					<option style="color:#000" value="1194">Manshiet Nasser Cabinet 15</option>
+					<option style="color:#000" value="1396">Manshyet Nasr Cable 12</option>
+					<option style="color:#000" value="1006">Manshyet Nasr Cable 9</option>
+					<option style="color:#000" value="205">Marg</option>
+					<option style="color:#000" value="1309">Marg 1 Cabinet 7-2</option>
+					<option style="color:#000" value="1203">Marg 1 cable 26-31</option>
+					<option style="color:#000" value="767">Marg 2</option>
+					<option style="color:#000" value="1364">Marg 2 Cable 16 Cabinet</option>
+					<option style="color:#000" value="206">Maryotia</option>
+					<option style="color:#000" value="1212">Masr El Gedida Cable 1 cabinet 7</option>
+					<option style="color:#000" value="1231">Masr El Gedida Cable 8 cabinet 2</option>
+					<option style="color:#000" value="207">Mataria</option>
+					<option style="color:#000" value="1405">Mataria Cable 73 Cabinet 4</option>
+					<option style="color:#000" value="208">Mayou 15</option>
+					<option style="color:#000" value="209">Mazghona</option>
+					<option style="color:#000" value="210">Mohndeseen</option>
+					<option style="color:#000" value="211">Mokatam</option>
+					<option style="color:#000" value="212">Mokatam 2</option>
+					<option style="color:#000" value="213">Nahda</option>
+					<option style="color:#000" value="892">Nargees Cabin 2</option>
+					<option style="color:#000" value="214">Nasr 1</option>
+					<option style="color:#000" value="952">Nasr 1 Cable 42 Cabin</option>
+					<option style="color:#000" value="1277">Nasr 1 Khalifa st. Cabinet 47</option>
+					<option style="color:#000" value="114">Nasr 2</option>
+					<option style="color:#000" value="1214">Nasr 2 Cable 21 Cabinet 13</option>
+					<option style="color:#000" value="1151">Nasr 2 Cable 59 Cabinet 21</option>
+					<option style="color:#000" value="113">Nasr 3</option>
+					<option style="color:#000" value="215">Nasr 4</option>
+					<option style="color:#000" value="1407">Nasr 4 Cable 7-22 Cabinet 9</option>
+					<option style="color:#000" value="1095">NASR1 CABLE 33</option>
+					<option style="color:#000" value="1159">Nasr2 Cable 12 Cabinet 2</option>
+					<option style="color:#000" value="216">Nozha 1</option>
+					<option style="color:#000" value="1302">Nozha 1 replace reno 402</option>
+					<option style="color:#000" value="217">Nozha 2</option>
+					<option style="color:#000" value="1042">Nozha 2 Cable R2</option>
+					<option style="color:#000" value="218">Nozha 3</option>
+					<option style="color:#000" value="1113">Nozha 3 Cable 10 Cabinet 11</option>
+					<option style="color:#000" value="1063">Nozha 3 Cable 6 Cabinet 4</option>
+					<option style="color:#000" value="1052">Nozha 3 Cable 7 Cabinet 6</option>
+					<option style="color:#000" value="1239">Nozha1 Cabinet23</option>
+					<option style="color:#000" value="1150">Nozha1 Cable 8 Cabinet36</option>
+					<option style="color:#000" value="1207">NOZHA3 CABLE8 CABIN8</option>
+					<option style="color:#000" value="1198">Oboor1 Cabinet 7</option>
+					<option style="color:#000" value="1406">Obour 1 Cabin 43</option>
+					<option style="color:#000" value="219">Obour-1</option>
+					<option style="color:#000" value="220">Obour-2</option>
+					<option style="color:#000" value="221">Obour-3</option>
+					<option style="color:#000" value="1201">Obour1 Cable 12-5</option>
+					<option style="color:#000" value="1417">Oct1 El Hai El Tamen Cabinet 8</option>
+					<option style="color:#000" value="1416">October 1 Cable 41-15</option>
+					<option style="color:#000" value="160">Omrania</option>
+					<option style="color:#000" value="222">Opera</option>
+					<option style="color:#000" value="254">Oseem</option>
+					<option style="color:#000" value="243">Palm Hills</option>
+					<option style="color:#000" value="1158">Qalag Cable 2 Cabinet 9</option>
+					<option style="color:#000" value="1335">Qalag Cable 8 Cabinet14</option>
+					<option style="color:#000" value="223">Ramsis</option>
+					<option style="color:#000" value="224">Rehab</option>
+					<option style="color:#000" value="225">Remaya</option>
+					<option style="color:#000" value="226">Road El-Farag</option>
+					<option style="color:#000" value="227">Roda</option>
+					<option style="color:#000" value="228">Saft El-Laban</option>
+					<option style="color:#000" value="229">Sakara</option>
+					<option style="color:#000" value="251">Shaikh Zayed</option>
+					<option style="color:#000" value="230">Sharabia</option>
+					<option style="color:#000" value="231">Sheraton</option>
+					<option style="color:#000" value="232">Sherouk 2</option>
+					<option style="color:#000" value="233">Shoubra</option>
+					<option style="color:#000" value="234">Shoubra El-Khima3</option>
+					<option style="color:#000" value="130">Shoubra Elkhima</option>
+					<option style="color:#000" value="235">Shoubra Ment</option>
+					<option style="color:#000" value="236">Smart Village</option>
+					<option style="color:#000" value="866">Snafeer</option>
+					<option style="color:#000" value="759">Sukeel</option>
+					<option style="color:#000" value="237">Sun Set</option>
+					<option style="color:#000" value="1125">Tagamo Khames cable 5 Sor Madrasa</option>
+					<option style="color:#000" value="1199">Tagamoa Khames Cable 7 Cabinet 22</option>
+					<option style="color:#000" value="1133">Tagamoaa Khames Cable 22 Cabinet13</option>
+					<option style="color:#000" value="238">Tal Al menya</option>
+					<option style="color:#000" value="239">Tebin</option>
+					<option style="color:#000" value="240">Tora</option>
+					<option style="color:#000" value="241">Warak</option>
+					<option style="color:#000" value="242">Zamalek</option>
+		        </optgroup>
+            	<optgroup style="color:#060" label="Dakahleya">
+		4			<option style="color:#000" value="1248">Abo Deshesha Abbas cabin</option>
+					<option style="color:#000" value="325">Abo Galal</option>
+					<option style="color:#000" value="28">Aga</option>
+					<option style="color:#000" value="326">Akhtab</option>
+					<option style="color:#000" value="343">Alexandria El Gedidah</option>
+					<option style="color:#000" value="327">Atmida</option>
+					<option style="color:#000" value="1374">Atmida - El Boha Cable1</option>
+					<option style="color:#000" value="328">Awish El Hagar</option>
+					<option style="color:#000" value="330">Basandila</option>
+					<option style="color:#000" value="331">Batra</option>
+					<option style="color:#000" value="21">Belkas</option>
+					<option style="color:#000" value="1211">Beshla</option>
+					<option style="color:#000" value="1065">Bondera &amp; Kebab Cable 2</option>
+					<option style="color:#000" value="33">Borg el noor</option>
+					<option style="color:#000" value="914">Bosat karim el din CABIN</option>
+					<option style="color:#000" value="335">Damas</option>
+					<option style="color:#000" value="336">Deiast</option>
+					<option style="color:#000" value="35">Dekrns</option>
+					<option style="color:#000" value="337">Demera</option>
+					<option style="color:#000" value="338">Diarb EL Khdr</option>
+					<option style="color:#000" value="34">Dmooh </option>
+					<option style="color:#000" value="45">Dondet</option>
+					<option style="color:#000" value="329">El Azeza</option>
+					<option style="color:#000" value="1218">El Eayadia - El Alf</option>
+					<option style="color:#000" value="345">El Hassayna</option>
+					<option style="color:#000" value="355">El Kom EL A7mar</option>
+					<option style="color:#000" value="1085">El Mansoura Shark Cable 2 ,10,12,13 Cabinet 2</option>
+					<option style="color:#000" value="1126">El Mansoura Shark Cable 2 ,10,12,13 Cabinet 3&#8203;</option>
+					<option style="color:#000" value="1296">El Mansoura Shark Cable 2 ,10,12,14 Cabinet 2</option>
+					<option style="color:#000" value="1354">El Mansoura Shark Cable 2 -10-12-13 Cabinet 5</option>
+					<option style="color:#000" value="1369">El Mansoura Shark Cable 2 -10-12-13 Cabinet 7</option>
+					<option style="color:#000" value="1370">El Mansoura Shark Cable 2 -10-12-13 Cabinet 8</option>
+					<option style="color:#000" value="1387">El Mansoura Shark Cable 2 -10-12-13 Cabinet 9</option>
+					<option style="color:#000" value="356">El-Manzala</option>
+					<option style="color:#000" value="340">Gamasa El Sena3eya</option>
+					<option style="color:#000" value="341">Ghazalah</option>
+					<option style="color:#000" value="342">Godayedet El Hala</option>
+					<option style="color:#000" value="344">Hala</option>
+					<option style="color:#000" value="1378">Kafr Bedawy Old&amp; New</option>
+					<option style="color:#000" value="346">Kafr El Atrash</option>
+					<option style="color:#000" value="909">Kafr El Baramon Cabin</option>
+					<option style="color:#000" value="1270">Kafr El Dabousy Cabinet 2</option>
+					<option style="color:#000" value="1164">Kafr El Dabousy Cable12 Cabinet 2</option>
+					<option style="color:#000" value="348">Kafr El Hag Sherbin</option>
+					<option style="color:#000" value="1160">Kafr El Hataba Sherbin Cabin</option>
+					<option style="color:#000" value="349">Kafr El Meqdam</option>
+					<option style="color:#000" value="350">Kafr El Salahat</option>
+					<option style="color:#000" value="347">Kafr El Shenawy</option>
+					<option style="color:#000" value="1300">Kafr El Wazer - Tafahna El Ashraf</option>
+					<option style="color:#000" value="1081">Kafr ELrock</option>
+					<option style="color:#000" value="351">Kafr Srenga</option>
+					<option style="color:#000" value="352">Kom EL Derby</option>
+					<option style="color:#000" value="353">Kom EL Noor</option>
+					<option style="color:#000" value="1413">Kom Elderby Telbana</option>
+					<option style="color:#000" value="354">Mahalet Demna</option>
+					<option style="color:#000" value="249">Mansoura East</option>
+					<option style="color:#000" value="1371">Mansoura Gharb Cabinet1</option>
+					<option style="color:#000" value="1339">Mansoura Gharb Cabinet11</option>
+					<option style="color:#000" value="1372">Mansoura Gharb Cabinet2</option>
+					<option style="color:#000" value="1360">Mansoura Gharb Cabinet25</option>
+					<option style="color:#000" value="1361">Mansoura Gharb Cabinet26</option>
+					<option style="color:#000" value="1362">Mansoura Gharb Cabinet27</option>
+					<option style="color:#000" value="1365">Mansoura Gharb Cabinet3</option>
+					<option style="color:#000" value="1373">Mansoura Gharb Cabinet33</option>
+					<option style="color:#000" value="1366">Mansoura Gharb Cabinet34</option>
+					<option style="color:#000" value="1363">Mansoura Gharb Cabinet35</option>
+					<option style="color:#000" value="1367">Mansoura Gharb Cabinet36</option>
+					<option style="color:#000" value="1368">Mansoura Gharb Cabinet39</option>
+					<option style="color:#000" value="100">Mansoura West</option>
+					<option style="color:#000" value="357">MATTARIA-DAQAHLIA</option>
+					<option style="color:#000" value="358">Meet Abo Khaled</option>
+					<option style="color:#000" value="360">Meet Damses</option>
+					<option style="color:#000" value="1177">Meet Gerah - Mansoura</option>
+					<option style="color:#000" value="65">Meet Ghamr</option>
+					<option style="color:#000" value="66">Meet Ghamr-2</option>
+					<option style="color:#000" value="1195">Meet Masoud - Aga&#8203;</option>
+					<option style="color:#000" value="1331">Meet Merga Cabinet 1</option>
+					<option style="color:#000" value="361">Meet Salseil</option>
+					<option style="color:#000" value="359">Meet ya3esh</option>
+					<option style="color:#000" value="24">Mnyet Elnasr</option>
+					<option style="color:#000" value="362">Nabarouh</option>
+					<option style="color:#000" value="1187">Nasrah Cabinet</option>
+					<option style="color:#000" value="363">Nesha</option>
+					<option style="color:#000" value="365">Noubtarif</option>
+					<option style="color:#000" value="364">Olilah</option>
+					<option style="color:#000" value="946">Sabaa We Abu Ramadan Cabin</option>
+					<option style="color:#000" value="366">Satamony</option>
+					<option style="color:#000" value="370">Seneita</option>
+					<option style="color:#000" value="369">Sentmay</option>
+					<option style="color:#000" value="371">Shabrawesh</option>
+					<option style="color:#000" value="282">Sherbeen</option>
+					<option style="color:#000" value="367">Shoha</option>
+					<option style="color:#000" value="92">Snblaween</option>
+					<option style="color:#000" value="368">Tafahna El Ashraf - DK</option>
+					<option style="color:#000" value="250">Talkha</option>
+					<option style="color:#000" value="334">Tamai EL Emdid</option>
+					<option style="color:#000" value="79">Tana7</option>
+					<option style="color:#000" value="80">Tanamel El Sharaqy</option>
+					<option style="color:#000" value="333">Telbana</option>
+					<option style="color:#000" value="332">Zafar</option>
+		        </optgroup>
+            	<optgroup style="color:#060" label="Damietta">
+		13			<option style="color:#000" value="460">Domiat - 1</option>
+					<option style="color:#000" value="461">Domiat - 2</option>
+					<option style="color:#000" value="458">EL Roda - Damietta</option>
+					<option style="color:#000" value="457">EL Sero</option>
+					<option style="color:#000" value="965">Ezbet El Nahda</option>
+					<option style="color:#000" value="435">Farskour</option>
+					<option style="color:#000" value="436">Kafr El Batikh</option>
+					<option style="color:#000" value="437">Kafr Saad</option>
+					<option style="color:#000" value="953">Meet ABo Ghaleb</option>
+					<option style="color:#000" value="459">New Damietta</option>
+					<option style="color:#000" value="456">Raas El Bar</option>
+		        </optgroup>
+            	<optgroup style="color:#060" label="Fayoum">
+		27			<option style="color:#000" value="645">Atsa</option>
+					<option style="color:#000" value="663">Behmow</option>
+					<option style="color:#000" value="646">Damo</option>
+					<option style="color:#000" value="647">Dar El Salam Fayoum</option>
+					<option style="color:#000" value="650">Matar Tars</option>
+					<option style="color:#000" value="654">Senouras</option>
+					<option style="color:#000" value="662">Tersa</option>
+		        </optgroup>
+            	<optgroup style="color:#060" label="Gharbeya">
+		1			<option style="color:#000" value="52">Al Santa</option>
+					<option style="color:#000" value="12">Amreya (EL Gharbiyah)</option>
+					<option style="color:#000" value="30">Bana Abo Ser</option>
+					<option style="color:#000" value="1178">Bassioun Cabinet 1</option>
+					<option style="color:#000" value="83">Basyoon</option>
+					<option style="color:#000" value="14">Bshbeesh</option>
+					<option style="color:#000" value="974">Cabin -2190- Moubarak</option>
+					<option style="color:#000" value="938">Cabin -2276- Hadeket El Tefl</option>
+					<option style="color:#000" value="804">Dakran</option>
+					<option style="color:#000" value="315">Damro</option>
+					<option style="color:#000" value="982">Dawakhlia Cable 5 Cabin</option>
+					<option style="color:#000" value="949">Denoshar Cabin</option>
+					<option style="color:#000" value="1083">Dokron Cabinet 1</option>
+					<option style="color:#000" value="935">El Galaa Cabin</option>
+					<option style="color:#000" value="304">Elkorashia</option>
+					<option style="color:#000" value="1031">Eshnaway Cabinet</option>
+					<option style="color:#000" value="1030">Eshnaway Ezbet Toukh Cabinet1</option>
+					<option style="color:#000" value="316">Farsis</option>
+					<option style="color:#000" value="1409">Fisha Sleem Cabinet 1</option>
+					<option style="color:#000" value="1410">Fisha Sleem Cabinet 2</option>
+					<option style="color:#000" value="49">Ga3farya</option>
+					<option style="color:#000" value="975">Gaberia Cable 5 Cabin</option>
+					<option style="color:#000" value="1078">Ganag Cabin 1</option>
+					<option style="color:#000" value="1090">Ganag Cabin 2</option>
+					<option style="color:#000" value="1076">Gharbia Abo Homr Basyoun</option>
+					<option style="color:#000" value="317">Hanoot</option>
+					<option style="color:#000" value="1024">Hanoot 2 Cabinet</option>
+					<option style="color:#000" value="1305">Houen - Qetor</option>
+					<option style="color:#000" value="1353">Kafr Azizya Cabin</option>
+					<option style="color:#000" value="1304">Kafr Baldam - Qetor</option>
+					<option style="color:#000" value="973">Kafr El Fayala Cabinet Cable 1</option>
+					<option style="color:#000" value="1184">Kafr El Sheikh Moftah</option>
+					<option style="color:#000" value="308">Kafr El Zayat</option>
+					<option style="color:#000" value="1071">Kafr Khedr &amp; Kafr Masoad Cabinet</option>
+					<option style="color:#000" value="58">Kafr Kla Elbab</option>
+					<option style="color:#000" value="1359">Kafr Sebtas Cabinet</option>
+					<option style="color:#000" value="1375">Kafr Shamakh</option>
+					<option style="color:#000" value="1259">Kafr Sheshta Cabinet 2</option>
+					<option style="color:#000" value="1260">Kafr Sheshta Cabinet 3</option>
+					<option style="color:#000" value="1299">Karansho Cabinet 1</option>
+					<option style="color:#000" value="60">Katoor</option>
+					<option style="color:#000" value="948">Labsheet Cabin</option>
+					<option style="color:#000" value="318">Mahala Marhoum</option>
+					<option style="color:#000" value="534">Mahalet El Laban</option>
+					<option style="color:#000" value="1036">MAhalet Elghasb and Meet Serag Cable 4</option>
+					<option style="color:#000" value="1358">Mahalet Khalaf Cabin</option>
+					<option style="color:#000" value="1337">Mahalet Menouf Cabinet</option>
+					<option style="color:#000" value="319">Mahalet Mnouf</option>
+					<option style="color:#000" value="23">Mahalet Rooh</option>
+					<option style="color:#000" value="15">Mahalla Zyad</option>
+					<option style="color:#000" value="63">Meet Assass</option>
+					<option style="color:#000" value="320">Meet Badr Halawa</option>
+					<option style="color:#000" value="321">Meet Habib</option>
+					<option style="color:#000" value="1058">Meet Hebesh cabin</option>
+					<option style="color:#000" value="20">Nawag</option>
+					<option style="color:#000" value="1049">Nawag cable 1-02</option>
+					<option style="color:#000" value="1056">Nawag cable 5-01</option>
+					<option style="color:#000" value="314">Nehttai</option>
+					<option style="color:#000" value="1057">Nivia</option>
+					<option style="color:#000" value="1035">Ragedya cabin 1</option>
+					<option style="color:#000" value="1154">Ragedya cabin 2</option>
+					<option style="color:#000" value="1324">Sa El Hagar Cabinet 1</option>
+					<option style="color:#000" value="1272">Sa El Hagar Cabinet 2</option>
+					<option style="color:#000" value="17">Saft Torab</option>
+					<option style="color:#000" value="1320">Saft Torab 1</option>
+					<option style="color:#000" value="1329">Saft Torab 2</option>
+					<option style="color:#000" value="69">Samanoud</option>
+					<option style="color:#000" value="306">Sandeid</option>
+					<option style="color:#000" value="1117">Santa Cable1-3 - 2-3</option>
+					<option style="color:#000" value="1298">Sard - Qetor</option>
+					<option style="color:#000" value="322">Seberbay</option>
+					<option style="color:#000" value="18">Shabsheer EL Hassah</option>
+					<option style="color:#000" value="72">Shershaba</option>
+					<option style="color:#000" value="1048">Shershaba cable 1.2 &amp; Kafr Shahin cable 300</option>
+					<option style="color:#000" value="324">Shobra Babel</option>
+					<option style="color:#000" value="323">Shobra El Namla</option>
+					<option style="color:#000" value="1019">Shobrato 1</option>
+					<option style="color:#000" value="1020">Shobrato 2</option>
+					<option style="color:#000" value="1269">Shoubra Babel Cabinet 1</option>
+					<option style="color:#000" value="307">Sonbat</option>
+					<option style="color:#000" value="305">Tanta-1</option>
+					<option style="color:#000" value="310">Tanta-2</option>
+					<option style="color:#000" value="292">Tanta-3</option>
+					<option style="color:#000" value="1038">Tanta2 Meet Gazal Cable1</option>
+					<option style="color:#000" value="1050">Tanta2 Shobar Cabinet08</option>
+					<option style="color:#000" value="81">Zefta</option>
+		        </optgroup>
+            	<optgroup style="color:#060" label="Ismalia">
+		15			<option style="color:#000" value="470">Abo Atwa</option>
+					<option style="color:#000" value="468">Abo Soltan</option>
+					<option style="color:#000" value="467">EL Tal EL kebeir</option>
+					<option style="color:#000" value="466">Fayed</option>
+					<option style="color:#000" value="623">Ismailia 1</option>
+					<option style="color:#000" value="469">Sarabyoum</option>
+		        </optgroup>
+            	<optgroup style="color:#060" label="Kafr El-Shekh">
+		3			<option style="color:#000" value="508">Abo Badawy</option>
+					<option style="color:#000" value="1021">Abo Badawy Cabinet</option>
+					<option style="color:#000" value="522">Abo Draz</option>
+					<option style="color:#000" value="841">Abo Mandour</option>
+					<option style="color:#000" value="528">Abo Sa3ed</option>
+					<option style="color:#000" value="1411">Agouzen Cabinet 3</option>
+					<option style="color:#000" value="1412">Agouzen Cabinet 4</option>
+					<option style="color:#000" value="565">Al Ghonemy</option>
+					<option style="color:#000" value="574">Baktoush</option>
+					<option style="color:#000" value="561">Balteem</option>
+					<option style="color:#000" value="570">Balteem - Moubarak</option>
+					<option style="color:#000" value="1400">Balteem anabra Cabinet 1</option>
+					<option style="color:#000" value="580">Bani Bakkar</option>
+					<option style="color:#000" value="578">Bermbal</option>
+					<option style="color:#000" value="372">Biella</option>
+					<option style="color:#000" value="373">Borg El Brolos</option>
+					<option style="color:#000" value="374">Damro El Hadady</option>
+					<option style="color:#000" value="273">Desok</option>
+					<option style="color:#000" value="526">Dukalt</option>
+					<option style="color:#000" value="932">Ebshan</option>
+					<option style="color:#000" value="529">El Fokaha El Bahareya</option>
+					<option style="color:#000" value="278">EL Hamool</option>
+					<option style="color:#000" value="524">EL Khadmeya</option>
+					<option style="color:#000" value="527">El Koom El Taweel</option>
+					<option style="color:#000" value="525">El Krda</option>
+					<option style="color:#000" value="379">EL Reyad - KSH</option>
+					<option style="color:#000" value="990">El Saayda Cabin</option>
+					<option style="color:#000" value="381">El Salmeya</option>
+					<option style="color:#000" value="569">El Tarzy</option>
+					<option style="color:#000" value="564">Eshaka</option>
+					<option style="color:#000" value="970">Ezbet El Sheikh Cabin</option>
+					<option style="color:#000" value="523">Ezbet Yousef</option>
+					<option style="color:#000" value="375">Fowa</option>
+					<option style="color:#000" value="842">Gezera El khadra</option>
+					<option style="color:#000" value="577">Hassaf</option>
+					<option style="color:#000" value="560">Kafr Al Wazareya</option>
+					<option style="color:#000" value="559">Kafr Baklolah</option>
+					<option style="color:#000" value="1244">Kafr El Garayda cabinet</option>
+					<option style="color:#000" value="558">Kafr El Marazka</option>
+					<option style="color:#000" value="57">Kafr El Sheikh</option>
+					<option style="color:#000" value="1328">Kafr El Sheikh Cabinet 11</option>
+					<option style="color:#000" value="1288">Kafr El Sheikh Cabinet 12</option>
+					<option style="color:#000" value="1323">Kafr El Sheikh Cabinet 13</option>
+					<option style="color:#000" value="1341">Kafr El Sheikh Cabinet 18</option>
+					<option style="color:#000" value="1249">Kafr El Sheikh Cabinet 19</option>
+					<option style="color:#000" value="1250">Kafr El Sheikh Cabinet 20</option>
+					<option style="color:#000" value="1242">Kafr El Sheikh Cabinet 32</option>
+					<option style="color:#000" value="1189">Kafr El Sheikh Qozman Cabinet 1</option>
+					<option style="color:#000" value="1137">Kafr El Shiekh Cable 32 Cabinet 1</option>
+					<option style="color:#000" value="1115">Kafr El Shiekh Cable 38 Cabinet 2</option>
+					<option style="color:#000" value="1086">Kafr El Shiekh Eskan Moubarak Cabinet3</option>
+					<option style="color:#000" value="1345">Kafr Elsheikh Cabinet 16</option>
+					<option style="color:#000" value="1356">Kafr Elsheikh Cabinet 17</option>
+					<option style="color:#000" value="1119">kanarya Niaba Edarya cabinet 10</option>
+					<option style="color:#000" value="1012">Karn And Ashmawy Cabin</option>
+					<option style="color:#000" value="566">Keneset Al Sarados</option>
+					<option style="color:#000" value="585">Kona</option>
+					<option style="color:#000" value="991">Koum EL Dahab Cabin</option>
+					<option style="color:#000" value="376">Mahalet Abo Aly</option>
+					<option style="color:#000" value="555">Mahalet Diay</option>
+					<option style="color:#000" value="531">Mahalet EL Kasab</option>
+					<option style="color:#000" value="1180">masnaa el sokar</option>
+					<option style="color:#000" value="579">Morabeen</option>
+					<option style="color:#000" value="378">Motobas</option>
+					<option style="color:#000" value="377">Mseer</option>
+					<option style="color:#000" value="541">Om Sn</option>
+					<option style="color:#000" value="1169">Qantarah El Badah Kafr El Shiekh</option>
+					<option style="color:#000" value="958">Qelein</option>
+					<option style="color:#000" value="380">Sad Khamies</option>
+					<option style="color:#000" value="382">Sanhoor El Madena</option>
+					<option style="color:#000" value="383">Sendion</option>
+					<option style="color:#000" value="955">Shabba</option>
+					<option style="color:#000" value="576">Shebas 3omeer</option>
+					<option style="color:#000" value="384">Shibas El Mal7</option>
+					<option style="color:#000" value="563">Sidi ghazy</option>
+					<option style="color:#000" value="562">Sidi salem</option>
+					<option style="color:#000" value="1283">Sidi Salem Cabinet 2</option>
+					<option style="color:#000" value="1032">Sidi Salem Elqoun cabin</option>
+					<option style="color:#000" value="790">Waraq</option>
+		        </optgroup>
+            	<optgroup style="color:#060" label="Kalubia">
+		12			<option style="color:#000" value="385">Aghour El Kobra</option>
+					<option style="color:#000" value="1240">Ahraz Cabinet</option>
+					<option style="color:#000" value="1055">Aly Sharaf Eldin Cabinet5&#8203;</option>
+					<option style="color:#000" value="387">Arab Gohainah</option>
+					<option style="color:#000" value="309">Banha-1-East</option>
+					<option style="color:#000" value="388">Banha-2-West</option>
+					<option style="color:#000" value="389">Banha-3</option>
+					<option style="color:#000" value="390">Beltan</option>
+					<option style="color:#000" value="391">Degwy</option>
+					<option style="color:#000" value="386">EL Ammar</option>
+					<option style="color:#000" value="392">El Deer</option>
+					<option style="color:#000" value="398">EL Shakr</option>
+					<option style="color:#000" value="399">EL Shomot</option>
+					<option style="color:#000" value="393">Gamgara</option>
+					<option style="color:#000" value="394">Kafr El Sahby</option>
+					<option style="color:#000" value="395">Kafr Shokr</option>
+					<option style="color:#000" value="396">Meet Kanana</option>
+					<option style="color:#000" value="1108">MEREG1CABINUNO</option>
+					<option style="color:#000" value="867">Senharah</option>
+					<option style="color:#000" value="397">Shbeen El-Kanater</option>
+					<option style="color:#000" value="400">Tahanoub</option>
+					<option style="color:#000" value="619">Tant El Gezira</option>
+					<option style="color:#000" value="401">Tookh</option>
+		        </optgroup>
+            	<optgroup style="color:#060" label="Luxor">
+		26			<option style="color:#000" value="786">Al Nemsa</option>
+					<option style="color:#000" value="695">Armant East</option>
+					<option style="color:#000" value="787">El 3ashi</option>
+					<option style="color:#000" value="778">El Bayadeya</option>
+					<option style="color:#000" value="781">El Dab3eya</option>
+					<option style="color:#000" value="782">El Deer</option>
+					<option style="color:#000" value="697">El Karna</option>
+					<option style="color:#000" value="780">El Mahameed</option>
+					<option style="color:#000" value="785">El Rozykat</option>
+					<option style="color:#000" value="696">Esna</option>
+					<option style="color:#000" value="779">Keman El Mata3na</option>
+					<option style="color:#000" value="571">Luxor</option>
+					<option style="color:#000" value="572">Luxor 2</option>
+					<option style="color:#000" value="783">Mansha2et 3amary</option>
+					<option style="color:#000" value="784">Nag3 El We7da</option>
+		        </optgroup>
+            	<optgroup style="color:#060" label="Marsa Matrouh">
+		19			<option style="color:#000" value="997">Alameen</option>
+					<option style="color:#000" value="491">Badr Virginia</option>
+					<option style="color:#000" value="875">El Dab3a</option>
+					<option style="color:#000" value="490">Green Beach</option>
+					<option style="color:#000" value="492">Hamamat (El Hamam)</option>
+					<option style="color:#000" value="489">Karawan</option>
+					<option style="color:#000" value="488">Marbilla</option>
+					<option style="color:#000" value="495">Marina-1</option>
+					<option style="color:#000" value="496">Marina-2</option>
+					<option style="color:#000" value="485">Marsa Matrouh-1</option>
+					<option style="color:#000" value="486">Mina</option>
+					<option style="color:#000" value="874">Rass El Hekma</option>
+					<option style="color:#000" value="487">Salloum</option>
+					<option style="color:#000" value="493">Sidi Abd El Rahman</option>
+					<option style="color:#000" value="494">Sidi Henesh</option>
+					<option style="color:#000" value="628">Siwa Marsa Matrouh</option>
+		        </optgroup>
+            	<optgroup style="color:#060" label="Menia">
+		22			<option style="color:#000" value="699">Abo El Wakf El Mahatta</option>
+					<option style="color:#000" value="807">Astal</option>
+					<option style="color:#000" value="701">Bany Mazar</option>
+					<option style="color:#000" value="1336">Bany Mazar Shark El Mahata Cabinet</option>
+					<option style="color:#000" value="704">Dear Mawas</option>
+					<option style="color:#000" value="853">Matay</option>
+					<option style="color:#000" value="711">Menia</option>
+					<option style="color:#000" value="891">Mlawy</option>
+					<option style="color:#000" value="708">Samalout</option>
+		        </optgroup>
+            	<optgroup style="color:#060" label="Mnofeya">
+		5			<option style="color:#000" value="407">Al Shohada2</option>
+					<option style="color:#000" value="412">Arab El Raml</option>
+					<option style="color:#000" value="302">Ashmoon</option>
+					<option style="color:#000" value="413">Bagour</option>
+					<option style="color:#000" value="411">Batanoon</option>
+					<option style="color:#000" value="599">Berket El Sab3</option>
+					<option style="color:#000" value="510">Donshway</option>
+					<option style="color:#000" value="415">El Baraneya</option>
+					<option style="color:#000" value="760">ElShahead fakry</option>
+					<option style="color:#000" value="756">Fisha El Kobra</option>
+					<option style="color:#000" value="298">Ganzoor</option>
+					<option style="color:#000" value="608">Kewsna</option>
+					<option style="color:#000" value="410">Manouf</option>
+					<option style="color:#000" value="67">Mansha2et Sultan</option>
+					<option style="color:#000" value="414">Meet Bera</option>
+					<option style="color:#000" value="868">Menawahalah</option>
+					<option style="color:#000" value="284">Quesna</option>
+					<option style="color:#000" value="514">Raheb</option>
+					<option style="color:#000" value="855">Sabk Edahak</option>
+					<option style="color:#000" value="1352">Sengrg Cabinet 1</option>
+					<option style="color:#000" value="520">Sers El Layan</option>
+					<option style="color:#000" value="998">Sers El Layan Cabin 1</option>
+					<option style="color:#000" value="999">Sers El Layan Cabin 2</option>
+					<option style="color:#000" value="1000">Sers El Layan Cabin 3</option>
+					<option style="color:#000" value="1001">Sers El Layan Cabin 5</option>
+					<option style="color:#000" value="1002">Sers El Layan Cabin 6</option>
+					<option style="color:#000" value="1003">Sers El Layan Cabin 7</option>
+					<option style="color:#000" value="1004">Sers El Layan Cabin 8</option>
+					<option style="color:#000" value="408">Shatanouf</option>
+					<option style="color:#000" value="416">Shbeen  - 1</option>
+					<option style="color:#000" value="417">Shbeen  - 2</option>
+					<option style="color:#000" value="406">Shobra Bkhoum</option>
+					<option style="color:#000" value="409">Sntrees</option>
+					<option style="color:#000" value="405">Taha Shoubra</option>
+					<option style="color:#000" value="404">Tala</option>
+		        </optgroup>
+            	<optgroup style="color:#060" label="New Vally">
+		28        </optgroup>
+            	<optgroup style="color:#060" label="Port Said">
+		14			<option style="color:#000" value="431">El Zhour (Port Said)</option>
+					<option style="color:#000" value="432">Mobarak (Port Said)</option>
+					<option style="color:#000" value="433">Port Fouad</option>
+					<option style="color:#000" value="434">Port Said</option>
+		        </optgroup>
+            	<optgroup style="color:#060" label="Qena">
+		20			<option style="color:#000" value="726">Abo Tesht</option>
+					<option style="color:#000" value="1141">AboTesht Cabin 03</option>
+					<option style="color:#000" value="725">Deshna</option>
+					<option style="color:#000" value="1143">el wakf ELsamana cable 3 cabinet 1</option>
+					<option style="color:#000" value="1144">el wakf kobry elkhamsin</option>
+					<option style="color:#000" value="1142">elwakf heger elgabal cabin 2</option>
+					<option style="color:#000" value="724">Farshout</option>
+					<option style="color:#000" value="1182">Hou</option>
+					<option style="color:#000" value="542">Koos</option>
+					<option style="color:#000" value="1308">Monshaa Souhag Qasr Saqafa Cabinet</option>
+					<option style="color:#000" value="1310">Nagaa Hamady Beside Railways</option>
+					<option style="color:#000" value="1307">Nagaa Hamady Cabinet 11</option>
+					<option style="color:#000" value="1326">Nagaa Hamady Cabinet 12</option>
+					<option style="color:#000" value="723">Nagaa Hammadi</option>
+					<option style="color:#000" value="1235">Nagaa Hammadi eldeer cabinet 1</option>
+					<option style="color:#000" value="1234">Nagaa Hammadi shalila cabinet 2</option>
+					<option style="color:#000" value="721">Qina East</option>
+					<option style="color:#000" value="553">Qina West</option>
+					<option style="color:#000" value="722">Queft</option>
+		        </optgroup>
+            	<optgroup style="color:#060" label="Red Sea">
+		9			<option style="color:#000" value="253">El Koseir</option>
+					<option style="color:#000" value="463">Gouna</option>
+					<option style="color:#000" value="465">Hurghada Dahar</option>
+					<option style="color:#000" value="464">Hurghada EL Siahy</option>
+					<option style="color:#000" value="1163">Hurghada Siahy - Kawser Cabinet 8</option>
+					<option style="color:#000" value="1165">Hurghada Siahy Mubarak 2 Cabinet 7</option>
+					<option style="color:#000" value="512">Makaday Bay</option>
+					<option style="color:#000" value="462">Ras Ghareb</option>
+					<option style="color:#000" value="1232">Ras Ghareb Cabinet 1</option>
+					<option style="color:#000" value="1317">Ras Ghareb cabinet 2</option>
+					<option style="color:#000" value="1306">Ras Ghareb cabinet 4</option>
+					<option style="color:#000" value="1313">Ras Ghareb cabinet 9</option>
+					<option style="color:#000" value="252">Safaga</option>
+					<option style="color:#000" value="1279">Safaga Cabinet 5 Alcatel</option>
+					<option style="color:#000" value="1185">Safaga Cabinet 6</option>
+					<option style="color:#000" value="1186">Safaga Cabinet 7</option>
+					<option style="color:#000" value="1183">Safaga TV</option>
+					<option style="color:#000" value="1089">Safaga Uno 2-2 Cabin</option>
+		        </optgroup>
+            	<optgroup style="color:#060" label="Sharkeya">
+		10			<option style="color:#000" value="424">Abo Hammad</option>
+					<option style="color:#000" value="425">Abo Kbeer</option>
+					<option style="color:#000" value="1149">Abrash Dahshama Cabinet1</option>
+					<option style="color:#000" value="426">Akyad EL Bahareya</option>
+					<option style="color:#000" value="427">Alakmah</option>
+					<option style="color:#000" value="445">Awlad Sakr</option>
+					<option style="color:#000" value="447">Bahnabay</option>
+					<option style="color:#000" value="1040">Balashon Kafr Hafna Cabinet01</option>
+					<option style="color:#000" value="448">Bany 3amer</option>
+					<option style="color:#000" value="453">Bany Shebl</option>
+					<option style="color:#000" value="451">Belbes</option>
+					<option style="color:#000" value="454">Beshyet Kayed</option>
+					<option style="color:#000" value="452">Brdein</option>
+					<option style="color:#000" value="423">Diarb Negm</option>
+					<option style="color:#000" value="443">EL Akhywa</option>
+					<option style="color:#000" value="449">EL Asdeya</option>
+					<option style="color:#000" value="444">El Aslogy</option>
+					<option style="color:#000" value="446">EL Azezeya</option>
+					<option style="color:#000" value="920">El Khesha Cabin</option>
+					<option style="color:#000" value="441">EL Mounir</option>
+					<option style="color:#000" value="440">EL Qaraqrah</option>
+					<option style="color:#000" value="429">EL Qorren</option>
+					<option style="color:#000" value="421">Faqous</option>
+					<option style="color:#000" value="422">Hehya</option>
+					<option style="color:#000" value="450">Hussenia</option>
+					<option style="color:#000" value="455">Ibrahemeya - Sharkeya</option>
+					<option style="color:#000" value="1018">Kafr Ebrash cabinet1</option>
+					<option style="color:#000" value="1033">Kafr Ebrash cabinet2</option>
+					<option style="color:#000" value="1093">Kafr El Gendy Cabin</option>
+					<option style="color:#000" value="442">Kradeis</option>
+					<option style="color:#000" value="1124">Meet Gaber Cabinet</option>
+					<option style="color:#000" value="1200">Nakariyah Cabinet</option>
+					<option style="color:#000" value="428">Om ElZain</option>
+					<option style="color:#000" value="420">Qanayat</option>
+					<option style="color:#000" value="439">Safor</option>
+					<option style="color:#000" value="419">San El Hagar</option>
+					<option style="color:#000" value="438">Sefita</option>
+					<option style="color:#000" value="430">Sharkia-Menya El-Kamh</option>
+					<option style="color:#000" value="1338">Sheba Cabinet 3</option>
+					<option style="color:#000" value="274">Zakazik East</option>
+					<option style="color:#000" value="313">Zakazik West</option>
+					<option style="color:#000" value="418">Zankaloun</option>
+		        </optgroup>
+            	<optgroup style="color:#060" label="Sinai North">
+		16			<option style="color:#000" value="471">El Arish</option>
+					<option style="color:#000" value="632">Sheikh Zouid</option>
+		        </optgroup>
+            	<optgroup style="color:#060" label="Sinai South">
+		17			<option style="color:#000" value="472">Dahab</option>
+					<option style="color:#000" value="473">Sharm-1</option>
+					<option style="color:#000" value="474">Sharm-2</option>
+					<option style="color:#000" value="475">Sharm-3</option>
+					<option style="color:#000" value="476">Sharm-4</option>
+		        </optgroup>
+            	<optgroup style="color:#060" label="Souhag">
+		23			<option style="color:#000" value="1074">Agana wel Qatana</option>
+					<option style="color:#000" value="728">Akhmem</option>
+					<option style="color:#000" value="550">Balyana</option>
+					<option style="color:#000" value="851">Banawet</option>
+					<option style="color:#000" value="736">Dar El Salam (Sohag)</option>
+					<option style="color:#000" value="1139">Dar ELsalam sohag EL bahria cabinet 5</option>
+					<option style="color:#000" value="978">EL Mdmr</option>
+					<option style="color:#000" value="1312">Gawazat - Souhag</option>
+					<option style="color:#000" value="738">Gerga</option>
+					<option style="color:#000" value="894">Khayam</option>
+					<option style="color:#000" value="551">Maraghah</option>
+					<option style="color:#000" value="1130">Mashtta</option>
+					<option style="color:#000" value="1280">Monshaa Souhag Hospital Cabinet</option>
+					<option style="color:#000" value="1325">Monshaa Souhag School Cabinet</option>
+					<option style="color:#000" value="552">Monshaah - Souhag</option>
+					<option style="color:#000" value="744">Naser Sohag</option>
+					<option style="color:#000" value="748">Shandawel El Balad</option>
+					<option style="color:#000" value="750">Shatora</option>
+					<option style="color:#000" value="554">Souhag East</option>
+					<option style="color:#000" value="547">Souhag West</option>
+					<option style="color:#000" value="753">Swamaa West</option>
+					<option style="color:#000" value="549">Tahta</option>
+					<option style="color:#000" value="548">Tema</option>
+					<option style="color:#000" value="1287">Tema Hamah Cabinet 1</option>
+					<option style="color:#000" value="1289">Tema Qaw Cabinet 3</option>
+		        </optgroup>
+            	<optgroup style="color:#060" label="Suez">
+		18			<option style="color:#000" value="483">Ain Sokhna</option>
+					<option style="color:#000" value="498">Ataka 1</option>
+					<option style="color:#000" value="499">Ataka-2</option>
+					<option style="color:#000" value="482">El Salam (Suez)</option>
+					<option style="color:#000" value="1062">El Suez Cabin Cable 34</option>
+					<option style="color:#000" value="481">Hod Eldars</option>
+					<option style="color:#000" value="480">Kabreit</option>
+					<option style="color:#000" value="479">Lavista</option>
+					<option style="color:#000" value="478">Marina Wadi El Doom</option>
+					<option style="color:#000" value="484">Mostaqbal - Faisal - Suez</option>
+					<option style="color:#000" value="477">Suez</option>
+					<option style="color:#000" value="1123">Suez Cable 61 Cabinet14</option>
+		        </optgroup>
+            
+    
+</select></td>
+</tr>
+<tr><td width="163"><b><font color="#008000">Phone Service</font></b></td>
+<td><input name="GoveCode" size="3" disabled="disabled" type="text">-
+<select name="StartNumber" onchange="Selectcity.StartNumber.value=NewCustomer.StartNumber.value; Selectcity.Phone.value=''; Selectcity.submit();">
+	<option selected="selected">Select</option>
+	</select>
+<input name="NoStNums" value="" type="hidden">-<input name="Phone" size="7" onchange="checkcenterals.Phone.value=NewCustomer.Phone.value; Selectcity.Phone.value=NewCustomer.Phone.value; CheckNumber(); Selectcity.submit();" onkeydown="khidr();" type="text">
+<input name="GoveCode1" size="3" value="" type="hidden">
+<input name="ServicePhone" maxlength="8" value="" type="hidden">
+<table>
+<tbody><tr>
+<td class="txt_tags_hand" onmouseover="this.style.color='#a6a6a6'" onmouseout="this.style.color='#cc0000'" onclick=" cleardata();">
+New Number</td>
+<td> - </td>
+<td class="txt_tags_hand" onmouseover="this.style.color='#a6a6a6'" onmouseout="this.style.color='#cc0000'" onclick="ownname.submit(); ">
+View Owner Name</td>
+<td> - </td>
+<td class="txt_tags_hand" onmouseover="this.style.color='#a6a6a6'" onmouseout="this.style.color='#cc0000'" onclick="Adsltelecome.submit(); Egypttelecome.submit();">
+Check Number</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td width="163"><b><font color="#008000">Phone Owner</font></b></td>
+<td><input style="width:150px" name="PhoneOwnerName" onchange="checkcenterals.PhoneOwnerName.value=NewCustomer.PhoneOwnerName.value; Selectcity.PhoneOwnerName.value=NewCustomer.PhoneOwnerName.value; arabicCheck();" type="text"><b><font style="font-size: 8pt" color="#FF0000">*in 
+Arabic</font></b></td>
+</tr>
+	<tr>
+	<td width="163"><b><font color="#008000">Reseller</font></b></td>
+	<td>
+	<input name="ResellerID" value="80" type="hidden">
+	abo.saher	</td>
+	</tr>
+	<tr>
+<td width="163"><b><font color="#008000">Package</font></b></td>
+<td>
+<select style="width:220px" name="PackageID" onchange="Selectcity.PackageID.value=NewCustomer.PackageID.value; Selectcity.RateID.value=''; Selectcity.submit();">
+			<option selected="selected">Please Select</option>
+			</select>
+</td>
+</tr>
+<tr>
+<td valign="top" width="163"><b><font color="#008000">Rate</font></b></td>
+<td>
+<table>
+<tbody><tr>
+<td>
+<select style="width:220px" name="RateID" onchange="Selectcity.RateID.value=NewCustomer.RateID.value; Selectcity.ip.value=''; Selectcity.submit();">
+	<option selected="selected">Please Select</option>
+	</select>
+<font color="green"><b></b></font>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td valign="top" width="163"><font color="#008000"><b>Ip's</b></font></td>
+<td>
+<select style="width:220px" name="ip" onchange="Selectcity.ip.value=NewCustomer.ip.value; Selectcity.submit();">
+	<option selected="selected" value="0">Please Select</option>
+		<option value="0">Nat</option>
+		<option value="1">1 ip</option>
+		<option value="8">8 ip</option>
+		<option value="16">16 ip</option>
+		<option value="32">32 ip</option>
+		<option value="64">64 ip</option>
+	</select>
+
+</td>
+</tr>
+<tr>
+<td width="163"><font color="#008000"><b>Service Kind</b></font></td>
+<td>
+<select style="width:150px" name="ServiceKindID" onchange="Selectcity.ServiceKindID.value=NewCustomer.ServiceKindID.value;">
+	<option selected="selected">Please Select</option>
+		<option value="1">Splitter</option>
+		<option value="2">Local Loop</option>
+	</select></td>
+</tr>
+
+
+
+
+
+<tr>
+<td width="163"><font color="#008000"><b>Comment</b></font></td>
+<td>
+<textarea style="width:150px" name="CommentCustomer" readonly="readonly" rows="4" cols="21"></textarea></td>
+</tr>
+
+
+
+    
+    
+    
+<tr>
+<td width="163"><b><font color="#008000">Monthly Discount</font></b></td>
+<td>
+<b><font color="#008000">
+N/A</font></b>
+<input name="Discount" value="20" size="9" type="hidden"></td>
+</tr>
+<tr>
+<td></td>
+<td>
+<table width="100%">
+ 
+</table>
+</td>
+</tr>
+
+
+
+
+
+
+
+    <input name="NPromoType" value="0" type="hidden">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<tr>
+<td colspan="2">
+<table align="center">
+<tbody><tr>
+<td class="txt_tags_hand" onmouseover="this.style.color='#a6a6a6'" onmouseout="this.style.color='#cc0000'" onclick="Checkall();">
+Submit</td>
+<td> - </td>
+<td class="txt_tags_hand" onmouseover="this.style.color='#a6a6a6'" onmouseout="this.style.color='#cc0000'" onclick="ResetAll();">
+Reset</td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table>
+</form>
+</td>        
+                     
+</tr></tbody></table></td></tr>
+              <tr>
+                <td class="DNNEmptyPane" id="dnn_BottomPane" colspan="2" align="center" valign="top"></td></tr></tbody></table></td></tr>
+        <tr>
+          <td align="center" valign="top">
+            <br></td></tr>
+        <tr>
+          <td id="DNN_FooterCell" align="center" valign="center">
+          <span class="SkinObject"><a href="http://www.netatnet-eg.com/"><b>NETatNET</b></a>
+          </span><b>®
+          </b>
+          <span class="SkinObject" id="dnn_dnnCOPYRIGHT_lblCopyright"><a class="Normal" href="http://www.netatnet-eg.com/"> 
+			<b>Corporation</b></a></span> 
+          &nbsp;&nbsp;<b>Developed By</b>&nbsp;<a class="SkinObject" id="dnn_dnnPRIVACY_hypPrivacy" href="http://www.wsmisr.com/">Web Services</a><br>
+            </td></tr></tbody></table></td>
+    <td>&nbsp;</td></tr></tbody></table>
+    <input id="ScrollTop" name="ScrollTop" type="hidden"> <input id="__dnnVariable" name="__dnnVariable" type="hidden"> 
+
+</body></html>

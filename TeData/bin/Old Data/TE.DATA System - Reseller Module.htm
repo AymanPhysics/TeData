@@ -1,0 +1,776 @@
+<html><head id="Head">
+<meta http-equiv="content-type" content="text/html; charset=windows-1256"><title>::TE.DATA System - Reseller Module::</title>
+<link rel="stylesheet" type="text/css" href="TE.DATA%20System%20-%20Reseller%20Module_files/sample.css">
+<script type="text/javascript" src="TE.DATA%20System%20-%20Reseller%20Module_files/popup-window.js"></script>
+<style type="text/css">
+
+#dropmenudiv{
+position:absolute;
+background-color:#FFF;
+border:1px solid black;
+border-bottom-width: 0;
+font:normal 12px Verdana;
+line-height:18px;
+z-index:100;
+}
+
+#dropmenudiv a{
+width: 100%;
+display: block;
+text-indent: 3px;
+border-bottom: 1px solid black;
+padding: 1px 0;
+text-decoration: none;
+font-weight: bold;
+}
+
+#dropmenudiv a:hover{ /*hover background color*/
+background-color:#999;
+}
+
+/* Sample CSS definition for the example list. Remove if desired */
+.navlist li {
+list-style-type: square;
+width: 135px;
+background-color: #FFFFB9;
+}
+
+</style>
+
+
+<script type="text/javascript">
+
+/***********************************************
+* AnyLink Vertical Menu- © Dynamic Drive (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+//Contents for menu 1
+var Invoicesmenu=new Array()
+Invoicesmenu[0]='<a href="index.php?PID=15">Monthly Invoice</a>'
+Invoicesmenu[1]='<a href="index.php?PID=22">Link Invoices</a>'
+Invoicesmenu[2]='<a href="index.php?PID=23">Link Payment Report</a>'
+
+var LineReqmenu=new Array()
+LineReqmenu[0]='<a href="index.php?PID=86">AUN Confirm Splitting</a>'
+
+//Contents for menu 2, and so on
+var menu2=new Array()
+menu2[0]='<a href="http://www.javascriptkit.com/cutpastejava.shtml">Free JavaScripts</a>'
+menu2[1]='<a href="http://www.javascriptkit.com/javaindex.shtml">JavaScript tutorials</a>'
+menu2[2]='<a href="http://news.bbc.co.uk">JavaScript Reference</a>'
+menu2[4]='<a href="http://www.javascriptkit.com/java/">Java Applets</a>'
+menu2[3]='<a href="http://www.javascriptkit.com/dhtmltutors/">DHTML & CSS</a>'
+menu2[4]='<a href="http://www.javascriptkit.com/howto/">Design Tutorials</a>'
+		
+var disappeardelay=250  //menu disappear speed onMouseout (in miliseconds)
+var horizontaloffset=2 //horizontal offset of menu from $dbname.default location. (0-5 is a good value)
+
+/////No further editting needed
+
+var ie4=document.all
+var ns6=document.getElementById&&!document.all
+
+if (ie4||ns6)
+document.write('<div id="dropmenudiv" style="visibility:hidden;width: 160px" onMouseover="clearhidemenu()" onMouseout="dynamichide(event)"></div>')
+
+function getposOffset(what, offsettype){
+var totaloffset=(offsettype=="left")? what.offsetLeft : what.offsetTop;
+var parentEl=what.offsetParent;
+while (parentEl!=null){
+totaloffset=(offsettype=="left")? totaloffset+parentEl.offsetLeft : totaloffset+parentEl.offsetTop;
+parentEl=parentEl.offsetParent;
+}
+return totaloffset;
+}
+
+
+function showhide(obj, e, visible, hidden, menuwidth){
+if (ie4||ns6)
+dropmenuobj.style.left=dropmenuobj.style.top=-500
+dropmenuobj.widthobj=dropmenuobj.style
+dropmenuobj.widthobj.width=menuwidth
+if (e.type=="click" && obj.visibility==hidden || e.type=="mouseover")
+obj.visibility=visible
+else if (e.type=="click")
+obj.visibility=hidden
+}
+
+function iecompattest(){
+return (document.compatMode && document.compatMode!="BackCompat")? document.documentElement : document.body
+}
+
+function clearbrowseredge(obj, whichedge){
+var edgeoffset=0
+if (whichedge=="rightedge"){
+var windowedge=ie4 && !window.opera? iecompattest().scrollLeft+iecompattest().clientWidth-15 : window.pageXOffset+window.innerWidth-15
+dropmenuobj.contentmeasure=dropmenuobj.offsetWidth
+if (windowedge-dropmenuobj.x-obj.offsetWidth < dropmenuobj.contentmeasure)
+edgeoffset=dropmenuobj.contentmeasure+obj.offsetWidth
+}
+else{
+var topedge=ie4 && !window.opera? iecompattest().scrollTop : window.pageYOffset
+var windowedge=ie4 && !window.opera? iecompattest().scrollTop+iecompattest().clientHeight-15 : window.pageYOffset+window.innerHeight-18
+dropmenuobj.contentmeasure=dropmenuobj.offsetHeight
+if (windowedge-dropmenuobj.y < dropmenuobj.contentmeasure){ //move menu up?
+edgeoffset=dropmenuobj.contentmeasure-obj.offsetHeight
+if ((dropmenuobj.y-topedge)<dropmenuobj.contentmeasure) //up no good either? (position at top of viewable window then)
+edgeoffset=dropmenuobj.y
+}
+}
+return edgeoffset
+}
+
+function populatemenu(what){
+if (ie4||ns6)
+dropmenuobj.innerHTML=what.join("")
+}
+
+
+function dropdownmenu(obj, e, menucontents, menuwidth){
+if (window.event) event.cancelBubble=true
+else if (e.stopPropagation) e.stopPropagation()
+clearhidemenu()
+dropmenuobj=document.getElementById? document.getElementById("dropmenudiv") : dropmenudiv
+populatemenu(menucontents)
+
+if (ie4||ns6){
+showhide(dropmenuobj.style, e, "visible", "hidden", menuwidth)
+dropmenuobj.x=getposOffset(obj, "left")
+dropmenuobj.y=getposOffset(obj, "top")
+dropmenuobj.style.left=dropmenuobj.x-clearbrowseredge(obj, "rightedge")+obj.offsetWidth+horizontaloffset+"px"
+dropmenuobj.style.top=dropmenuobj.y-clearbrowseredge(obj, "bottomedge")+"px"
+}
+
+return clickreturnvalue()
+}
+
+function clickreturnvalue(){
+if (ie4||ns6) return false
+else return true
+}
+
+function contains_ns6(a, b) {
+while (b.parentNode)
+if ((b = b.parentNode) == a)
+return true;
+return false;
+}
+
+function dynamichide(e){
+if (ie4&&!dropmenuobj.contains(e.toElement))
+delayhidemenu()
+else if (ns6&&e.currentTarget!= e.relatedTarget&& !contains_ns6(e.currentTarget, e.relatedTarget))
+delayhidemenu()
+}
+
+function hidemenu(e){
+if (typeof dropmenuobj!="undefined"){
+if (ie4||ns6)
+dropmenuobj.style.visibility="hidden"
+}
+}
+
+function delayhidemenu(){
+if (ie4||ns6)
+delayhide=setTimeout("hidemenu()",disappeardelay)
+}
+
+function clearhidemenu(){
+if (typeof delayhide!="undefined")
+clearTimeout(delayhide)
+}
+
+</script></head><body id="Body"><div id="dropmenudiv" style="visibility: hidden; width: 150px; top: 444px; left: 109px;" onmouseover="clearhidemenu()" onmouseout="dynamichide(event)"><a href="http://tedotdata.com/system/reseller/index.php?PID=86">AUN Confirm Splitting</a></div>
+<link id="_DesktopModules_Reports" href="TE.DATA%20System%20-%20Reseller%20Module_files/module.css" type="text/css" rel="stylesheet">
+<link id="_Portals__default_" href="TE.DATA%20System%20-%20Reseller%20Module_files/default.css" type="text/css" rel="stylesheet">
+<link id="_Portals__default_Skins_DNN_Minimal_" href="TE.DATA%20System%20-%20Reseller%20Module_files/skin.css" type="text/css" rel="stylesheet">
+<link id="_Portals_25_" href="TE.DATA%20System%20-%20Reseller%20Module_files/portal.css" type="text/css" rel="stylesheet">
+<link href="TE.DATA%20System%20-%20Reseller%20Module_files/style.css" rel="stylesheet" type="text/css">
+
+
+<table style="BORDER-COLLAPSE: collapse" bgcolor="white" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%">
+  <tbody>
+  <tr>
+    <td>&nbsp;</td>
+    <td id="DNN_MainLayoutCell" align="center">
+      <table style="BORDER-COLLAPSE: collapse" border="0" cellpadding="0" height="100%" width="100%">
+        <tbody>
+        <tr class="Control">
+          <td id="dnn_ControlPanel"></td>
+          </tr>
+        <tr>
+          <td style="PADDING-BOTTOM: 10px" align="left" valign="top">
+          <!-- Begin Header Table -->
+            <table id="DNN_HeaderTable" border="0" cellpadding="0" cellspacing="0" width="100%">
+              <tbody>
+              <tr>
+                <td id="DNN_HeaderLeft" rowspan="3" align="left" valign="center" width="223">
+                 <table height="113" width="317">
+                 	<tbody><tr><td valign="bottom">
+						<p align="center">
+						<img src="TE.DATA%20System%20-%20Reseller%20Module_files/logo-tedotdata.gif" height="87" width="222"></p></td></tr>
+                 </tbody></table>
+                 </td>
+                <td id="DNN_HeaderRightTop" align="right" height="36" nowrap="nowrap" valign="bottom"> 
+				<p align="center"> 
+				<span class="DNN_Search"><b><font color="#CC0000" size="2">
+				<!-- Start Upper Menu -->
+				:: TE.DATA - Reseller Module ::
+                </font></b></span>
+				<!--End Upper Menu -->
+ </p></td></tr>
+              <tr>             
+                <td id="DNN_HeaderRightMiddle" align="left" height="26" valign="center">
+              </td></tr><tr>
+                <td id="DNN_HeaderRightBottom" align="left" height="84" valign="top">
+                <!-- Begin Header Actions Table -->
+                  <table id="DNN_HeaderActions" border="0" cellpadding="0" cellspacing="0" height="103%" width="590">
+                    <tbody>
+                    <tr>
+                      <td colspan="10" valig="middle" align="center">
+						<b>
+						<font color="#CC0000" size="3"><font face="Tahoma">:: TE.DATA :: 
+						Internet Service Provider ::</font><br> </font>
+						<font size="2">:: Be Connected ::</font></b></td>
+                      </tr></tbody></table>
+                      <!-- End Header Actions Table -->
+                      </td></tr></tbody></table>
+                      <!-- End Header Table -->
+                      </td></tr>
+        <tr>
+          <td id="DNN_ContentUserCell" align="left" nowrap="nowrap" valign="center">
+            <table border="0" cellpadding="5" cellspacing="0" width="100%">
+              <tbody>
+              <tr>
+                <td align="left" nowrap="nowrap" valign="center">
+                <span id="dnn_dnnBREADCRUMB_lblBreadCrumb">
+                <a class="DNN_BreadCrumb" href="http://tedotdata.com/system/reseller/index.php">Home</a></span> 
+                </td>
+                <td class="DNN_Login" align="center" nowrap="nowrap" valign="center" width="74%">
+                24 Jun 2015</td>
+                <td align="right" nowrap="nowrap" valign="center">
+                <a class="DNN_Login" id="dnn_dnnLOGIN_cmdLogin" href="http://tedotdata.com/system/reseller/logout.php">Logout</a> </td>
+                </tr>
+                </tbody>
+                </table>
+                </td>
+                </tr>
+                <!-- Start Real Data -->
+        <tr>
+          <td style="PADDING-TOP: 7px" height="100%" valign="top">
+            <table border="0" cellpadding="2" cellspacing="0" width="100%">
+              <tbody>
+              <tr>
+              <!-- Start Left Menu -->
+                <td id="dnn_LeftPane" align="center" valign="top" width="200">
+                            
+  <!-- Start Left Menu First Box-->
+                 <table style="BORDER-COLLAPSE: collapse" border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tbody>
+                    <tr>
+                      <td align="left" valign="top">
+                        <table cellpadding="0" cellspacing="0" width="100%">
+                          <tbody>
+                          <tr>
+                            <td style="BACKGROUND-IMAGE: url('../images/topleft.gif'); BACKGROUND-REPEAT: no-repeat" align="left" height="28" valign="top" width="41">&nbsp;</td>
+                            <td style="BACKGROUND-IMAGE: url('../images/topright.gif'); BACKGROUND-REPEAT: repeat-x" align="left" height="28" valign="top">
+							<span class="Head">Welcome</span><span class="Head" id="dnn_ctr3691_dnnTITLE_lblTitle"> </span></td>
+							</tr>
+							</tbody>
+							</table>
+							</td>
+							</tr>
+                   			 <tr>
+                      <td style="BORDER-RIGHT: #dedede 1px solid; PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; MARGIN-LEFT: 1px; BORDER-LEFT: #dedede 1px solid; PADDING-TOP: 5px" align="left" valign="top"><span class="DNNAlignleft" id="dnn_ctr3691_ContentPane">
+                        <!-- Start Employee Data -->
+                                                <div id="dnn_ctr3691_ModuleContent">
+                        <div class="Normal" id="dnn_ctr3691_HtmlModule_HtmlModule_lblContent">
+                        <table width="184">
+                        <tbody><tr>
+                        <td width="41"><font color="#CC0000"><b>Name:</b></font></td>
+                        <td><b><font color="#696969">abo.saher						</font></b></td>
+                        </tr>
+                        <tr>
+                        <td width="41"><font color="#CC0000"><b>Level:</b></font></td>
+                        <td><b><font color="#696969">Reseller</font>
+						</b></td>
+                        </tr>
+                        <tr>
+                        <td width="41"><font color="#CC0000"><b>Ip:</b></font></td>
+                        <td><b><font color="#696969">41.39.3.27</font></b></td>
+                        </tr>
+                         <tr>
+                        <td colspan="2"><a class="Normal" href="http://tedotdata.com/system/reseller/index.php?PID=13">Change Password</a></td>
+                        </tr>
+                        </tbody></table>
+                        </div>
+                        <!-- End Employee Data -->
+                        </div></span></td></tr>
+                    <tr>
+                      <td align="left">
+                        <table cellpadding="0" cellspacing="0" width="100%">
+                          <tbody>
+                          <tr>
+                            <td align="left" height="13" width="13">
+                            <img src="TE.DATA%20System%20-%20Reseller%20Module_files/bottomleft.gif" height="13" width="14"></td>
+                            <td style="BORDER-BOTTOM: #dedede 1px solid" align="right" width="100%"><span style="FONT-SIZE: 1pt">&nbsp;</span></td>
+                            <td align="right" height="13" width="13">
+                            <img src="TE.DATA%20System%20-%20Reseller%20Module_files/bottomright.gif" height="13" width="14"></td></tr></tbody></table></td></tr>
+                    <tr>
+                      <td align="left" valign="center">
+                      <img src="TE.DATA%20System%20-%20Reseller%20Module_files/pixel.gif" height="1" width="180"></td></tr></tbody></table><br>
+                      <!-- Start Second Table-->
+                  <table style="BORDER-COLLAPSE: collapse" border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tbody>
+                    <tr>
+                      <td align="left" valign="top">
+                        <table cellpadding="0" cellspacing="0" width="100%">
+                          <tbody>
+                          <tr>
+                            <td style="BACKGROUND-IMAGE: url('../images/topleft.gif'); BACKGROUND-REPEAT: no-repeat" align="left" height="28" valign="top" width="41">&nbsp;</td>
+                            <td style="BACKGROUND-IMAGE: url('../images/topright.gif'); BACKGROUND-REPEAT: repeat-x" align="left" height="28" valign="top"><span class="Head" id="dnn_ctr1248_dnnTITLE_lblTitle">Quick Links</span> &nbsp;</td></tr></tbody></table></td></tr>
+                    <tr>
+                      <td style="BORDER-RIGHT: #dedede 1px solid; PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; MARGIN-LEFT: 1px; BORDER-LEFT: #dedede 1px solid; PADDING-TOP: 5px" align="left" valign="top"><span class="DNNAlignleft" id="dnn_ctr1248_ContentPane">
+                        <!-- Start Links -->
+                        <div id="dnn_ctr1248_ModuleContent">
+                        <div id="dnn_ctr1248_Links_Links_pnlList">
+                        <table id="dnn_ctr1248_Links_Links_lstLinks" style="BORDER-COLLAPSE: collapse" summary="Links Design Table" border="0" cellpadding="0" cellspacing="0" width="183">
+                          <tbody>
+                          <tr>
+                            <td valign="top">
+                              <table border="0" cellpadding="4" cellspacing="0" width="178">
+                                <tbody>
+                                <tr>
+                                <td></td></tr></tbody></table></td></tr>
+                                
+                                
+                                                              
+                          <tr>
+                            <td valign="top">
+                              <table border="0" cellpadding="4" cellspacing="0">
+
+                                <tbody>
+                                <tr>
+                                <td nowrap="nowrap">
+								<a class="Normal" href="http://tedotdata.com/system/reseller/index.php?PID=2">Add New Customer</a> &nbsp; 
+                                </td></tr>
+                                <tr>
+                                <td></td></tr>
+                                </tbody>
+
+                                </table>
+                                </td>
+                                </tr>
+                                                                
+                                
+                                
+                              <tr>
+                                <td valign="top">
+                                    <table border="0" cellpadding="4" cellspacing="0">
+                                        <tbody>
+                                            <tr>
+                                            <td nowrap="nowrap">
+                                            <a href="http://tedotdata.com/system/reseller/index.php?PID=4">Customer Information</a> &nbsp; 
+                                            </td></tr>
+                                            <tr>
+                                            <td>
+                                            </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                              </tr>
+                                
+                                
+                                
+                                                              <tr>
+                                <td valign="top">
+                                    <table border="0" cellpadding="4" cellspacing="0">
+                                        <tbody>
+                                            <tr>
+                                            <td nowrap="nowrap">
+                                            <a href="http://tedotdata.com/system/reseller/index.php?PID=5">Service Requests</a> &nbsp; 
+                                            </td></tr>
+                                            <tr>
+                                            <td>
+                                            </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                              </tr>
+                                                                
+                              <tr>
+                                <td valign="top">
+                                    <table border="0" cellpadding="4" cellspacing="0">
+                                        <tbody>
+                                     <tr>
+	                                <td style="height:30px ; vertical-align:middle ;" onmouseover="dropdownmenu(this, event, LineReqmenu, '150px')" onmouseout="delayhidemenu()" valign="middle">
+									<a href="">Line Requests</a></td>
+	                                </tr>
+
+                                            <tr>
+                                            <td>
+                                            </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                              </tr>
+                                
+                                
+                                                              <tr>
+                                <td valign="top">
+                                    <table border="0" cellpadding="4" cellspacing="0">
+                                        <tbody>
+                                                 <tr>
+	                                <td style="height:30px ; vertical-align:middle ;" onmouseover="dropdownmenu(this, event, Invoicesmenu, '150px')" onmouseout="delayhidemenu()" valign="middle">
+									<a href="http://tedotdata.com/system/reseller/index.php?PID=15">
+									<font color="red">Invoices</font></a></td>
+	                                </tr>
+                                            <tr>
+                                            <td>
+                                            </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                              </tr>
+                                                                
+                                
+                                
+                                                    
+                           <tr>
+                            <td valign="top">
+                              <table border="0" cellpadding="4" cellspacing="0">
+                                <tbody>
+                                <tr>
+                                <td nowrap="nowrap">
+								<a href="http://tedotdata.com/system/reseller/index.php?PID=19">Sub-Reseller Invoices</a> &nbsp; 
+                                </td></tr>
+                                <tr>
+                                <td> </td>
+                                </tr>
+                                </tbody>
+                                </table></td>
+                          </tr>
+								
+                          <tr>
+                            <td valign="top">
+                              <table border="0" cellpadding="4" cellspacing="0">
+                                <tbody>
+                                <tr>
+                                <td nowrap="nowrap">
+								<a href="http://tedotdata.com/system/reseller/index.php?PID=20">Monthly Invoice</a> &nbsp; 
+                                </td></tr>
+                                <tr>
+                                <td> </td>
+                                </tr>
+                                </tbody>
+                                </table></td>
+                          </tr>
+
+                          
+                                                    
+                                
+                                
+                                
+                          <tr>
+                            <td valign="top">
+                              <table border="0" cellpadding="4" cellspacing="0">
+                                <tbody>
+                                <tr>
+                                <td nowrap="nowrap">
+								<a href="http://tedotdata.com/system/reseller/index.php?PID=66">Reports</a> &nbsp; 
+                                </td></tr>
+                                <tr>
+                                <td> </td>
+                                </tr>
+                                </tbody>
+                                </table></td>
+                          </tr>
+                          
+                          
+                          
+                          
+                          
+                          
+                                                    
+                           <tr>
+                            <td valign="top">
+                              <table border="0" cellpadding="4" cellspacing="0">
+                                <tbody>
+                                <tr>
+                                <td nowrap="nowrap">
+								<a href="http://tedotdata.com/system/reseller/index.php?PID=17">Add Sub-Reseller</a> &nbsp; 
+                                </td></tr>
+                                <tr>
+                                <td> </td>
+                                </tr>
+                                </tbody>
+                                </table></td>
+                          </tr>
+
+
+                          <tr>
+                            <td valign="top">
+                              <table border="0" cellpadding="4" cellspacing="0">
+                                <tbody>
+                                <tr>
+                                <td nowrap="nowrap">
+								<a href="http://tedotdata.com/system/reseller/index.php?PID=18">Edit Sub-Resellers</a> &nbsp; 
+                                </td></tr>
+                                <tr>
+                                <td> </td>
+                                </tr>
+                                </tbody>
+                                </table></td>
+                          </tr>
+
+                          
+                                                    
+                          
+                          <tr>
+                            <td valign="top">
+                              <table border="0" cellpadding="4" cellspacing="0">
+
+                                <tbody>
+                                <tr>
+                                <td nowrap="nowrap">
+								<a class="Normal" href="http://tedotdata.com/system/reseller/index.php?PID=9116">Old Announcements</a> &nbsp; 
+                                </td></tr>
+                                <tr>
+                                <td></td></tr>
+                                </tbody>
+
+                                </table>
+                                </td>
+                                </tr>                          
+                          
+                          
+                          
+                          
+                          
+                          <tr>
+                            <td valign="top">
+                              <table border="0" cellpadding="4" cellspacing="0">
+                                <tbody>
+                                <tr>
+                                <td></td></tr></tbody></table></td></tr>
+                          <tr>
+                            <td valign="top">
+                              <table border="0" cellpadding="4" cellspacing="0">
+                                </table></td></tr>
+                          <tr>
+                            <td valign="top">
+                              <table border="0" cellpadding="4" cellspacing="0">
+                                <tbody>
+                               <!---<TR>
+                                <TD noWrap>
+								<A class=Normal href="index.php?PID=10" target=_self>Line Requests</A> &nbsp; 
+                                </TD></TR>--->
+                                <tr>
+                                <td></td></tr>
+                                <tr>
+                                <td><span class="Head" id="dnn_ctr1248_dnnTITLE_lblTitle">
+								<font size="2">Thank you For 
+								Trusting Us</font></span></td></tr></tbody></table></td></tr></tbody></table></div>
+                                <span class="DNNAlignleft" id="dnn_ctr1248_ContentPane">
+                                <!-- End Lincks -->
+                                </span></div></span></td></tr>
+                    <tr>
+                      <td align="left">
+                        <table cellpadding="0" cellspacing="0" width="100%">
+                          <tbody>
+                          <tr>
+                            <td align="left" height="13" width="13">
+                            <img src="TE.DATA%20System%20-%20Reseller%20Module_files/bottomleft.gif" height="13" width="14"></td>
+                            <td style="BORDER-BOTTOM: #dedede 1px solid" align="right" width="100%"><span style="FONT-SIZE: 1pt">&nbsp;</span></td>
+                            <td align="right" height="13" width="13">
+                            <img src="TE.DATA%20System%20-%20Reseller%20Module_files/bottomright.gif" height="13" width="14"></td></tr></tbody></table></td></tr>
+                    <tr>
+                      <td>
+                      <br>
+                      <img src="TE.DATA%20System%20-%20Reseller%20Module_files/CustomerCareService.gif" border="1" height="52" width="192">
+                      <table width="185">
+                      <tbody><tr>
+                      <td>
+					</td>
+                      </tr>
+                      </tbody></table>
+                      </td>
+					</tr></tbody></table></td>
+                <td valign="top">
+                  <table border="0" cellpadding="5" cellspacing="0" height="431" width="100%">
+                    <tbody>
+                    <tr>
+                      
+                      
+<form name="Pages" action="index.php" method="Get"></form>
+<input name="PID" id="answer" type="hidden">
+
+<td valign="top">
+
+<script>
+function CheckReseller()
+{
+if(AddSubReseller.SubUsername.value=='')
+{
+alert('Please Enter Sub-Reseller Name')
+AddSubReseller.SubUsername.focus();
+}
+else if(AddSubReseller.SubPassword.value=='')
+{
+alert('Please Enter Sub-Reseller Pasword')
+AddSubReseller.SubPassword.focus();
+}
+else if(AddSubReseller.SubEmail.value=='')
+{
+alert('Please Enter Reseller Email')
+AddSubReseller.SubEmail.focus();
+}
+else
+{
+AddSubReseller.submit();
+}
+}
+</script>
+
+
+
+<form name="AddSubReseller" action="" method="post">
+<input name="action" value="addthereseller" type="hidden">
+<table>
+
+<tbody><tr>
+
+<td><b><font color="#008000">Sub-Reseller UserName</font></b></td>
+<td><input name="SubUsername" type="text"></td>
+</tr>
+
+<tr>
+<td><b><font color="#008000">Sub-Reseller Password</font></b></td>
+<td><input name="SubPassword" type="text"></td>
+</tr>
+
+<tr>
+<td><b><font color="#008000">Sub-Reseller Email</font></b></td>
+<td><input name="SubEmail" type="text"></td>
+</tr>
+
+<tr>
+<td width="163"><b><font color="#008000">Can Add Customers ?</font></b></td>
+<td><input checked="checked" name="canAddCustomers" value="1" type="radio">Yes 
+<input name="canAddCustomers" value="0" type="radio">No </td>
+</tr>
+
+
+<tr>
+<td><b><font color="#008000">Can View customer ?</font></b></td>
+<td><input name="canViewCustomers" value="1" type="radio">All 
+<input checked="checked" name="canViewCustomers" value="0" type="radio">His Customers Only </td>
+</tr>
+
+
+<tr>
+<td><b><font color="#008000">Can View Your Discount ?</font></b></td>
+<td><input name="canViewDiscount" value="1" type="radio">Yes 
+<input checked="checked" name="canViewDiscount" value="0" type="radio">No</td>
+</tr>
+
+
+<tr>
+<td><b><font color="#008000">Can Make Requests ?</font></b></td>
+<td><input name="canMakeRequests" value="1" type="radio">Yes 
+<input checked="checked" name="canMakeRequests" value="0" type="radio">No</td>
+</tr>
+
+
+<tr>
+<td><b><font color="#008000">Can View Invoices ?</font></b></td>
+<td><input name="canViewInvoices" value="1" type="radio">Yes 
+<input checked="checked" name="canViewInvoices" value="0" type="radio">No</td>
+</tr>
+
+
+<tr>
+<td><b><font color="#008000">Can Manage SubResellers ?</font></b></td>
+<td><input name="canmanagesubresellers" value="1" type="radio">Yes 
+<input checked="checked" name="canmanagesubresellers" value="0" type="radio">No</td>
+</tr>
+
+ 
+ 
+	<tr>
+        <td colspan="2" align="center"><b><font color="#008000">Sub-Reseller Discount</font></b></td>
+    </tr>
+    
+	<tr>
+        <td><b><font color="#008000">Link UnLimited</font></b></td>
+        <td><input name="SUBLinkUL" value="0" type="text"><b><font color="#008000">%</font></b></td>
+    </tr>
+	<tr>
+        <td><b><font color="#008000">Link Limited</font></b></td>
+        <td><input name="SUBLinkL" value="0" type="text"><b><font color="#008000">%</font></b></td>
+    </tr>
+	<tr>
+        <td><b><font color="#008000">Tedata UnLimited</font></b></td>
+        <td><input name="SUBTEDataUL" value="0" type="text"><b><font color="#008000">%</font></b></td>
+    </tr>
+	<tr>
+        <td><b><font color="#008000">Tedata Limited</font></b></td>
+        <td><input name="SUBTEDataL" value="0" type="text"><b><font color="#008000">%</font></b></td>
+    </tr>
+	<tr>
+        <td><b><font color="#008000">Etisalat UnLimited</font></b></td>
+        <td><input name="SUBEtisalatUL" value="0" type="text"><b><font color="#008000">%</font></b></td>
+    </tr>
+	<tr>
+        <td><b><font color="#008000">Etisalat Limited</font></b><b><font color="#008000">%</font></b></td>
+        <td><input name="SUBEtisalatL" value="0" type="text"></td>
+    </tr>
+    
+    <tr>
+    <td><b><font color="#008000">Can View Sub-Reseller Invoices ?</font></b></td>
+    <td><input name="canViewsubInvoices" value="1" type="radio">All 
+    <input checked="checked" name="canViewsubInvoices" value="0" type="radio">His invoices only</td>
+    </tr>
+	
+	
+
+
+<tr>
+<td style="color: rgb(204, 0, 0);" colspan="2" class="txt_tags_hand" onmouseover="this.style.color='#a6a6a6'" onmouseout="this.style.color='#cc0000'" onclick="CheckReseller();" align="center">
+Submit</td>
+</tr>
+
+</tbody></table>
+
+
+
+
+
+
+</form></td>        
+                     
+</tr></tbody></table></td></tr>
+              <tr>
+                <td class="DNNEmptyPane" id="dnn_BottomPane" colspan="2" align="center" valign="top"></td></tr></tbody></table></td></tr>
+        <tr>
+          <td align="center" valign="top">
+            <br></td></tr>
+        <tr>
+          <td id="DNN_FooterCell" align="center" valign="center">
+          <span class="SkinObject"><a href="http://www.netatnet-eg.com/"><b>NETatNET</b></a>
+          </span><b>®
+          </b>
+          <span class="SkinObject" id="dnn_dnnCOPYRIGHT_lblCopyright"><a class="Normal" href="http://www.netatnet-eg.com/"> 
+			<b>Corporation</b></a></span> 
+          &nbsp;&nbsp;<b>Developed By</b>&nbsp;<a class="SkinObject" id="dnn_dnnPRIVACY_hypPrivacy" href="http://www.wsmisr.com/">Web Services</a><br>
+            </td></tr></tbody></table></td>
+    <td>&nbsp;</td></tr></tbody></table>
+    <input id="ScrollTop" name="ScrollTop" type="hidden"> <input id="__dnnVariable" name="__dnnVariable" type="hidden"> 
+
+</body></html>
